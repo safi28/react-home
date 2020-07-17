@@ -1,0 +1,103 @@
+.card {
+    position: relative;
+    height: 800px;
+    background-color: #15111c;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 231px;
+    margin-right: -300px;
+    width: 86.4%;
+    display: block;
+    margin-top: -820px;
+    transition: 0.25s ease-in;
+  }
+  .interior-text {
+    margin-left: -550px;
+    margin-top: -200px;
+  
+    color: wheat;
+  }
+  .interior-hr {
+    width: 620px;
+    margin-left: -220px;
+  }
+  .interior-p {
+    font-size: medium;
+  }
+  /*  */
+  .smart-text {
+    margin-left: 750px;
+    margin-top: -210px;
+    color: wheat;
+  }
+  .smart-hr {
+    width: 620px;
+    margin-left: -150px;
+  }
+  .smart-p {
+    font-size: medium;
+  }
+  .arrow-image {
+    margin-left: 15px;
+    width: 35px;
+  }
+  .smart {
+    margin-left: -60px;
+    width: 35px;
+  }
+  .intr {
+    width: 280px;
+    /* height: 200px; */
+    margin-left: 105px;
+    border-radius: 1rem;
+  }
+  .button {
+    padding: 1rem 2rem;
+    margin-left: 30px;
+    margin-top: 20px;
+    color: #fff;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    background-color: #6e1a41;
+  }
+  
+  .box {
+    margin-left: 850px;
+    height: 300px;
+    margin-top: 50px;
+    margin-right: 30px;
+    padding: 1rem 3rem;
+    color: #fff;
+    background-color: #ff0077;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    /* cursor: pointer; */
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .box-second {
+    margin-right: 850px;
+    height: 300px;
+    margin-top: -30px;
+    margin-left: 40px;
+    padding: 1rem 3rem;
+    color: #fff;
+    background-color: #F9AE1C;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    /* cursor: pointer; */
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .box-button:hover {
+    opacity: 0.8;
+  }
+  

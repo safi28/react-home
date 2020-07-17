@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+body {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+}
+.main-footer {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://images.unsplash.com/photo-1527607976958-7cbb4a6d0131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1243&q=80");
+  color: white;
+  padding: 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main-footer article {
+  box-shadow: 0 0 25px 0 black;
+  margin: 1px auto;
+  padding: 8px;
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+}
+p i {
+  padding: 5px;
+}
+#social {
+  float: right;
+  margin-bottom: 90px;
+}
+#social i {
+  background: #3d3068;
+  border-radius: 50%;
+  margin: 10px;
+  padding: 18px;
+}
+
+.main-footer div {
+  width: 20%;
+  display: inline-block;
+  vertical-align: top;
+}
+.main-footer div a {
+  color: wheat;
+  text-decoration: none;
+}

@@ -1,0 +1,120 @@
+@media only screen and (max-width: 650px) {
+  .bg::before {
+    width: 120%;
+    bottom: 0;
+    -webkit-transform: skewX(0deg);
+    transform: skewX(0deg);
+  }
+}
+.details {
+  padding: 5rem;
+  padding-left: 10rem;
+  z-index: 100;
+  grid-column: 1 / span 1;
+  grid-row: 1 / -1;
+}
+@media only screen and (max-width: 650px) {
+  .details {
+    grid-row: 2 / span 1;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    -webkit-transform: translateY(-9rem);
+    transform: translateY(-9rem);
+  }
+}
+.details h1 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.details p {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: #b5b4b4;
+  margin-bottom: 2rem;
+  margin-right: 5rem;
+}
+@media only screen and (max-width: 800px) {
+  .details p {
+    margin-right: 0;
+  }
+}
+.details button {
+  padding: 1rem 3rem;
+  color: #fff;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.details button:hover {
+  opacity: 0.8;
+}
+.details button:focus {
+  outline: none;
+  border: none;
+}
+.box1-box {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(37, 38, 44, 0.52),
+      rgba(11, 29, 49, 0.73)
+    ),
+    url("https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #500033;
+}
+.inner {
+  background-color: #ff0077;
+}
+.inner::after,
+.inner::before {
+  background-color: rgba(255, 0, 119, 0.4);
+}
+.box1-button {
+  background-color: #ff0077;
+}
+.box5-box {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(37, 38, 44, 0.52),
+      rgba(11, 29, 49, 0.73)
+    ),
+    url("https://images.unsplash.com/photo-1519558260268-cde7e03a0152?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #300050;
+}
+.inner {
+  background-color: #8000ff;
+}
+.illustration .inner::after,
+.illustration .inner::before {
+  background-color: rgba(128, 0, 255, 0.4);
+}
+.box5-button {
+  background-color: #8000ff;
+}
+.illustration {
+  grid-column: 2 / -1;
+  grid-row: 1 / -1;
+  justify-self: center;
+}
+@media only screen and (max-width: 650px) {
+  .illustration {
+    grid-row: 1 / span 1;
+    grid-column: 1 / -1;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+}
