@@ -1,41 +1,50 @@
 import React, { useState, useEffect } from "react"
-import Form from './Form'
-const Slideshow = ({ images = [], title = [], price=[], percent=[], interval = 3000 }) => {
+import Form from "./Form"
+import { Redirect } from "react-router-dom"
+
+const Slideshow = ({
+  images = [],
+  name = [],
+  price = [],
+  percent = [],
+}) => {
   const [thumbnails, setThumnails] = useState([])
   const [currentSlide, setCurrentSlide] = useState(0)
   const [nextSlideStyle, setNextSlideStyle] = useState({})
   const [currentSlideStyle, setCurrentSlideStyle] = useState({})
-
+  const [data, setData] = useState({})
   useEffect(() => {
-    setThumnails(images)
+    setThumnails([images, name, price, percent])
     setCurrentSlideStyle({
-      backgroundImage:  images[currentSlide],
+      imageUrl: images[currentSlide],
+      name: name[currentSlide],
+      price: price[currentSlide],
+      percent: percent[currentSlide],
     })
-
     if (currentSlide === images.length - 1) {
       setNextSlideStyle({
-        backgroundImage: images[0],
-        frontTitle: title[0],
+        imageUrl: images[0],
+        name: name[0],
         price: price[0],
-        percent: percent[0]
+        percent: percent[0],
       })
+      setData(name[0])
     } else {
       setNextSlideStyle({
-        backgroundImage: images[currentSlide + 1],
-        frontTitle: title[currentSlide + 1],
+        imageUrl: images[currentSlide + 1],
+        name: name[currentSlide + 1],
         price: price[currentSlide + 1],
-        percent: percent[currentSlide + 1]
+        percent: percent[currentSlide + 1],
+      })
+      setData({
+        name: name[currentSlide + 1],
+        price: price[currentSlide + 1],
+        durability: percent[currentSlide + 1],
+        imageUrl: images[currentSlide + 1],
       })
     }
-    const loop = setInterval(() => {
-      if (currentSlide === images.length - 1) {
-        setCurrentSlide(0)
-      } else {
-        setCurrentSlide(currentSlide + 1)
-      }
-    }, interval)
-    return () => clearInterval(loop)
-  }, [images, currentSlide, interval])
+  
+  }, [images, currentSlide])
   function previous() {
     if (currentSlide > 0) {
       setCurrentSlide(currentSlide - 1)
@@ -51,7 +60,11 @@ const Slideshow = ({ images = [], title = [], price=[], percent=[], interval = 3
     }
   }
   return (
-      <Form previous={previous} nextSlideStyle={nextSlideStyle} next={next} />
+    <Form
+      previous={previous}
+      nextSlideStyle={nextSlideStyle}
+      next={next}
+    />
   )
 }
 export default Slideshow

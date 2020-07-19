@@ -3,7 +3,7 @@ import Icons from './Icons'
 import Logo from './Logo'
 import styles from "../styles/dashboard.module.css";
 import {Link} from 'react-router-dom'
-const Menu = ({isLogged}) => {
+const Menu = ({isLogged, user}) => {
     return (
         <nav className={styles["vertical-menu-wrapper"]}>
         <Logo />
@@ -18,6 +18,7 @@ const Menu = ({isLogged}) => {
              {isLogged && <Link to="/logout" className={styles["logout"]}>Logout</Link>}
              <li id={styles["user-info"]}>
                <span>online</span>
+               <span>{user}</span>
              </li>
            </span>
          </ul>

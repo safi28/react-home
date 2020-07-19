@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
- const schema = yup.object({
+const schema = yup.object({
     username: yup
       .string("Username shoud be a string")
       .required("Username is required")
@@ -12,6 +12,6 @@ import * as yup from 'yup'
       .min(6, "Password must be more than 6 chars"),
   
     repeatPassword: yup.string("Password must be a string"),
-  });
+});
 
 export default schema

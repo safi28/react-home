@@ -3,7 +3,7 @@ import {  Redirect } from "react-router-dom";
 import userService from "../../../services/user-service";
 import withForm from "../../../shared/hoc/withForm";
 import FormLabel from "../Form";
-import schema from "../schema";
+import schema from "./schema";
 
 class Form extends React.Component {
   usernameOnChangeHandler = this.props.controlChangeHandlerFactory("username");

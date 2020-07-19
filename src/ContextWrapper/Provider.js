@@ -4,7 +4,7 @@ import MyContext from '../Store/Context'
 
 class MyProvider extends Component {
     state = {
-        user: 'hiii'
+        user: undefined
     }
     render() {
         return (

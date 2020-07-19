@@ -2,9 +2,8 @@ import React from "react";
 import styles from "./style.module.css";
 import Link from "../../shared/Link/Link";
 import Input from "./Input";
-import HOC from "./HOC";
 
-const Label = (props) => {
+const FormLabel = (props) => {
   return (
     <div className={styles.page}>
       <div className={styles.left}>
@@ -53,5 +52,4 @@ const Label = (props) => {
     </div>
   );
 };
-const FormLabel = HOC(Label)
 export default FormLabel;

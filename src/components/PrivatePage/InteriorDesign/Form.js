@@ -1,6 +1,11 @@
 import React from "react"
 import styles from "../styles/interior.module.css"
+import { Redirect } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom";
+
 const Form = (props) => {
+  const history = useHistory()
+
   return (
     <div className={styles["all"]}>
       <div className={styles["inter"]}>
@@ -16,17 +21,17 @@ const Form = (props) => {
       <div className={styles["inter-r"]}>
         <img
           className={styles.helmet}
-          src={props.nextSlideStyle.backgroundImage}
+          src={props.nextSlideStyle.imageUrl}
           alt="helmet"
         />
         <div className={styles.productInfo}>
           <h1>
-            {props.nextSlideStyle.frontTitle} <br></br> STYLE
+            {props.nextSlideStyle.name} <br></br> STYLE
           </h1>
           <h2>${props.nextSlideStyle.price}</h2>
           <div className={styles.details}>
             <div className={styles.size}>
-              <h4>{props.nextSlideStyle.frontTitle} SIZE</h4>
+              <h4>{props.nextSlideStyle.name} SIZE</h4>
               <p>S</p>
               <p>M</p>
               <p>L</p>
@@ -39,7 +44,7 @@ const Form = (props) => {
               </h4>
             </div>
           </div>
-          <button className={styles["int-btn"]}>ADD TO CART</button>
+          <button onClick={() => history.push('/addTo')} className={styles["int-btn"]}>ADD TO CART</button>
           <i className={styles["material-icons fav"]}>favorite</i>
           <a href="#">ADD TO WISHLIST</a>
           <div onClick={props.next} className={styles["back-arr"]}>
