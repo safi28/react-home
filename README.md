@@ -1,5 +1,6 @@
 # React app
 * Setup
 > npm install
-* Run locallu
+* Run locally
 > npm start
+
