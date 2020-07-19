@@ -5,7 +5,7 @@ import {
   getValidationsRunnerForSchema,
 } from "../../../shared/hoc/withForm";
 import FormLabel from "../Form";
-import HOC from "../HOC";
+
 const validations = {
   username: yup
     .string()
@@ -15,11 +15,11 @@ const validations = {
     .string()
     .required("Password is required")
     .min(6, "Password must be more than 6 chars"),
-  };
+};
   const schema = yup.object().shape(validations);
   const validationsRunner = getValidationsRunnerForSchema(schema);
-  const Label = HOC(FormLabel)
-const Login = ({ login, history }) => {
+
+  const Login = ({ login, history }) => {
   const usernameFormControl = useFormControl("", validations.username);
   const passwordFormControl = useFormControl("", validations.password);
   const [serverError, setServerError] = React.useState(null);
@@ -29,7 +29,6 @@ const Login = ({ login, history }) => {
       password: passwordFormControl.value,
     })
       .then((data) => {
-        console.log(data);
         login(history, data).catch((error) => {
           if (typeof error === "object") {
             throw error;
@@ -53,7 +52,7 @@ const Login = ({ login, history }) => {
     login,
   ]);
   return (
-    <Label onClick={submitHandler} title={'Good to have you Back'}
+    <FormLabel onClick={submitHandler} title={'Good to have you Back'}
     secondTitle={'Log in to your account using email and password'}
     usernameOnChangeHandler={usernameFormControl.changeHandler}
     usernameError={usernameFormControl.errors}

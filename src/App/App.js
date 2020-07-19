@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Suspense } from "react"
 import "./App.css"
 import Menu from "../components/PrivatePage/Menu/Menu"
 import Slider from "../components/PublicPage/Slider"
@@ -14,6 +14,8 @@ import Footer from "../components/Footer"
 import Header from "../components/Header"
 import NotFound from "../components/Error/404"
 import notFoundCmp from "../components/Error/404.2"
+import Profile from "../components/Profile"
+import AddToPage from "../components/PrivatePage/AddToCard"
 
 function parseCookeis() {
   return document.cookie.split(" ").reduce((acc, cookie) => {
@@ -27,7 +29,7 @@ class App extends React.Component {
     super(props)
     const cookies = parseCookeis()
     const isLogged = !!cookies["auth_cookie"]
-    this.state = { isLogged }
+    this.state = { isLogged, username: undefined }
   }
   login = (history, data) => {
     return userService.login(data).then(() => {
@@ -43,13 +45,14 @@ class App extends React.Component {
     })
   }
   render() {
-    const { isLogged } = this.state
+    const { isLogged, username } = this.state
+    console.log(username)
     return (
       <div className="App">
         {!isLogged ? (
           <Header isLogged={isLogged} />
         ) : (
-          <Menu isLogged={isLogged} />
+          <Menu isLogged={isLogged} user={username} />
         )}
         <Switch>
           <Route
@@ -57,29 +60,41 @@ class App extends React.Component {
             exact
             component={
               isLogged
-                ? render( Dashboard, { isLogged })
-                : render(Slider, { isLogged })}
+                ? render(Dashboard, { isLogged })
+                : render(Slider, { isLogged })
+            }
           />
           <Route
             path="/signin"
             component={
               !isLogged
-                ? render(SignIn, { isLogged, login: this.login  })
-                : () => <Redirect to="/" />}
+                ? render(SignIn, { isLogged, login: this.login })
+                : () => <Redirect to="/" />
+            }
           />
           <Route
             path="/register"
             render={
               !isLogged
-                ? render( Register, { isLogged })
-                : () => <Redirect to="/" />}
+                ? render(Register, { isLogged })
+                : () => <Redirect to="/" />
+            }
           />
           <Route
             path="/logout"
             render={render(Logout, { isLogged, logout: this.logout })}
           />
-          <Route path='/interior' render = {render(Interior, {isLogged})} />
-          {isLogged ? <Route component={NotFound} /> : <Route component={notFoundCmp} />}
+          <Route path="/profile/:userid" component={Profile} />
+          <Route path="/interior" render={render(Interior, { isLogged })} />
+          <Route
+            path="/addTo"
+            render={render(AddToPage, {isLogged})}
+          />
+          {isLogged ? (
+            <Route component={NotFound} />
+          ) : (
+            <Route component={notFoundCmp} />
+          )}
         </Switch>
         <Footer />
       </div>

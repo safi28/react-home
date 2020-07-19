@@ -2,7 +2,7 @@ import axios from "axios";
 
 const userService = {
   home: () => {
-    return fetch("http://localhost:9999/auth", {
+    return fetch("http://localhost:9999/api/user", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -12,10 +12,10 @@ const userService = {
   },
   register: (newUser) => {
    return axios
-    .post("http://localhost:9999/register", newUser)
+    .post("http://localhost:9999/api/user/register", newUser)
   },
   login: (user) => {
-    return fetch("http://localhost:9999/signin", {
+    return fetch("http://localhost:9999/api/user/signin", {
       body: JSON.stringify(user),
       method: 'POST',
       headers: {
@@ -25,7 +25,7 @@ const userService = {
     })
   },
   logout: () => {
-    return fetch("http://localhost:9999/logout", {
+    return fetch("http://localhost:9999/api/user/logout", {
       method: "POST",
       credentials: "include",
     }).then((res) => res.text())
