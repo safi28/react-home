@@ -15,7 +15,6 @@ const asyncActionMap = {
   [ActionTypes.Login]:
     ({ user }) => userService.login(user)
       .then(user => { 
-        console.log('actiion user',user)
         loginSuccess(user)})
       .catch(error => loginFailure(error)),
   [ActionTypes.Logout]:

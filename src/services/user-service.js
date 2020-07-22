@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 
 const userService = {
   home: () => {
@@ -10,18 +10,20 @@ const userService = {
       },
     })
   },
+  getUser: (id) => {
+    return axios.get(`http://localhost:9999/api/user/user/${id}`)
+  },
   register: (newUser) => {
-   return axios
-    .post("http://localhost:9999/api/user/register", newUser)
+    return axios.post("http://localhost:9999/api/user/register", newUser)
   },
   login: (user) => {
     return fetch("http://localhost:9999/api/user/signin", {
       body: JSON.stringify(user),
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-type': 'application/json'
+        "Content-type": "application/json",
       },
-      credentials: 'include'
+      credentials: "include",
     })
   },
   logout: () => {

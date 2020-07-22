@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 const Menu = ({isLogged, user}) => {
     return (
         <nav className={styles["vertical-menu-wrapper"]}>
-        <Logo />
+        <Logo username={user} />
          <ul className={styles["vertical-menu"]}>
            <span id={styles["social"]}>
            <Link to='/'><Icons image={require("../../../static/images/dashboard.png")} name="Dashboard"/></Link> 
@@ -18,7 +18,6 @@ const Menu = ({isLogged, user}) => {
              {isLogged && <Link to="/logout" className={styles["logout"]}>Logout</Link>}
              <li id={styles["user-info"]}>
                <span>online</span>
-               <span>{user}</span>
              </li>
            </span>
          </ul>

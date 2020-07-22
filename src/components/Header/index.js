@@ -13,7 +13,6 @@ const Header = ({ isLogged }) => {
             <Link to="/">Home</Link>
             {!isLogged && <Link to="/signin">Sign In</Link>}
             {!isLogged && <Link to="/register">SignUp</Link>}
-            {/* {user && user.username} */}
           </ul>
         </header>
         <div id={styles["outer-circle"]}></div>

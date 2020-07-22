@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react"
 import Form from "./Form"
-import { Redirect } from "react-router-dom"
-
-const Slideshow = ({
-  images = [],
-  name = [],
-  price = [],
-  percent = [],
-}) => {
+import { useHistory } from "react-router-dom"
+import productService from "../../../services/product-service"
+import token from "../../../jwtCookie"
+import jwt from "jsonwebtoken"
+const Slideshow = ({ images = [], name = [], price = [], percent = [] }) => {
+  const history = useHistory()
   const [thumbnails, setThumnails] = useState([])
   const [currentSlide, setCurrentSlide] = useState(0)
   const [nextSlideStyle, setNextSlideStyle] = useState({})
@@ -43,7 +41,6 @@ const Slideshow = ({
         imageUrl: images[currentSlide + 1],
       })
     }
-  
   }, [images, currentSlide])
   function previous() {
     if (currentSlide > 0) {
@@ -59,11 +56,24 @@ const Slideshow = ({
       setCurrentSlide(currentSlide + 1)
     }
   }
+  async function addDataToUser() {
+    if (data.name !== undefined) {
+      if (token) {
+        await productService.create(data)
+        const decodedObject = jwt.verify(token, "secret123")
+        const id = decodedObject.userID
+        history.push(`api/user/basket/${id}`)
+      } else {
+        history.push("/")
+      }
+    }
+  }
   return (
     <Form
       previous={previous}
       nextSlideStyle={nextSlideStyle}
       next={next}
+      onClick={addDataToUser}
     />
   )
 }

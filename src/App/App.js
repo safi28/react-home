@@ -1,4 +1,4 @@
-import React, { Suspense } from "react"
+import React from "react"
 import "./App.css"
 import Menu from "../components/PrivatePage/Menu/Menu"
 import Slider from "../components/PublicPage/Slider"
@@ -16,25 +16,24 @@ import NotFound from "../components/Error/404"
 import notFoundCmp from "../components/Error/404.2"
 import Profile from "../components/Profile"
 import AddToPage from "../components/PrivatePage/AddToCard"
+import BasketPage from "../components/Basket"
+import parseCookeis from "../parseCookies"
+import jwt from "jsonwebtoken"
+import token from "../jwtCookie"
 
-function parseCookeis() {
-  return document.cookie.split(" ").reduce((acc, cookie) => {
-    const [cookieName, cookieValue] = cookie.split("=")
-    acc[cookieName] = cookieValue
-    return acc
-  }, {})
-}
 class App extends React.Component {
   constructor(props) {
     super(props)
     const cookies = parseCookeis()
     const isLogged = !!cookies["auth_cookie"]
-    this.state = { isLogged, username: undefined }
+    this.state = { isLogged, user: '' }
   }
   login = (history, data) => {
-    return userService.login(data).then(() => {
-      this.setState({ isLogged: true })
-      history.push("/")
+    return userService.login(data).then(async (data) => {
+      if (data.ok) {
+        this.setState({ isLogged: true })
+        history.push("/")
+      }
     })
   }
   logout = (history) => {
@@ -45,14 +44,18 @@ class App extends React.Component {
     })
   }
   render() {
-    const { isLogged, username } = this.state
-    console.log(username)
+    const { isLogged } = this.state
+    let user = ''
+    if (token !== undefined) {
+      const decodedObj= jwt.verify(token, "secret123")
+      user = decodedObj.username
+    }
     return (
       <div className="App">
         {!isLogged ? (
           <Header isLogged={isLogged} />
         ) : (
-          <Menu isLogged={isLogged} user={username} />
+          <Menu isLogged={isLogged} user={user} />
         )}
         <Switch>
           <Route
@@ -61,40 +64,30 @@ class App extends React.Component {
             component={
               isLogged
                 ? render(Dashboard, { isLogged })
-                : render(Slider, { isLogged })
-            }
-          />
+                : render(Slider, { isLogged })  }  />
           <Route
             path="/signin"
             component={
               !isLogged
                 ? render(SignIn, { isLogged, login: this.login })
-                : () => <Redirect to="/" />
-            }
-          />
+                : () => <Redirect to="/" />  } />
           <Route
             path="/register"
             render={
               !isLogged
                 ? render(Register, { isLogged })
-                : () => <Redirect to="/" />
-            }
-          />
+                : () => <Redirect to="/" />   } />
           <Route
             path="/logout"
-            render={render(Logout, { isLogged, logout: this.logout })}
-          />
-          <Route path="/profile/:userid" component={Profile} />
+            render={render(Logout, { isLogged, logout: this.logout })} />
+          <Route path="/profile/:userid" component={ Profile } />
           <Route path="/interior" render={render(Interior, { isLogged })} />
-          <Route
-            path="/addTo"
-            render={render(AddToPage, {isLogged})}
-          />
+          <Route path="/addTo" render={render(AddToPage, { isLogged })} />
+          <Route path="/api/user/basket/:id" render={render(BasketPage, { isLogged })} />
           {isLogged ? (
             <Route component={NotFound} />
           ) : (
-            <Route component={notFoundCmp} />
-          )}
+            <Route component={notFoundCmp} />  )}
         </Switch>
         <Footer />
       </div>
