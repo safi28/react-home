@@ -10,6 +10,7 @@ class AddToPage extends React.Component {
         this.state = {
             name: ''
         }
+        console.log(this.props.history.location.state.state);
     }
   nameOnChangeHandler = this.props.controlChangeHandlerFactory("name");
 
@@ -42,43 +43,34 @@ class AddToPage extends React.Component {
         <div className={styles.container}>
           <form className={styles.modal}>
             <header className={styles.header}>
-              <h1>Payment of $145.00</h1>
-              <div className={styles["card-type"]}>
+              <h1>Payment of ${this.props.history.location.state.state.price}</h1>
+              {/* <div className={styles["card-type"]}>
                 <a className={styles["card active"]} href="#">
                   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Amex.png" />
                 </a>
                 <a className={styles.card} href="#">
                   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Discover.png" />
                 </a>
-                <a className={styles.card} href="#">
+                <a className={styles.card} href="/">
                   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Visa.png" />
                 </a>
-                <a className={styles.card} href="#">
+                <a className={styles.card} href="/">
                   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/MC.png" />
                 </a>
-              </div>
+              </div> */}
             </header>
             <div className={styles.content}>
               <div className={styles.form}>
                 <div className={styles["form-row"]}>
                   <div className={styles["input-group"]}>
                     <label htmlFor="">Name of product</label>
-                    {/* <Input
-                      type="text"
-                      placeholder="name"
-                      onChage={this.nameOnChangeHandler}
-                    /> */}
-                    <input value={this.state.name} onChange={this.getValue} />
+                    <input value={this.props.history.location.state.state.name} onChange={this.getValue} disabled />
                   </div>
                 </div>
                 <div className={styles["form-row"]}>
                   <div className={styles["input-group"]}>
                     <label htmlFor="">Card Number</label>
-                    <Input
-                      type="number"
-                      placeholder="num"
-                      onChage={this.nameOnChangeHandler}
-                    />
+                    <input value={this.props.history.location.state.state.name} disabled />
                   </div>
                 </div>
                 <div className={styles["form-row"]}>

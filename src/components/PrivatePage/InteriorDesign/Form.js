@@ -1,11 +1,7 @@
 import React from "react"
 import styles from "../styles/interior.module.css"
-import { Redirect } from "react-router-dom"
-import { Link, useHistory } from "react-router-dom";
 
 const Form = (props) => {
-  const history = useHistory()
-
   return (
     <div className={styles["all"]}>
       <div className={styles["inter"]}>
@@ -44,9 +40,9 @@ const Form = (props) => {
               </h4>
             </div>
           </div>
-          <button onClick={() => history.push('/addTo')} className={styles["int-btn"]}>ADD TO CART</button>
+          <button onClick={props.onClick} className={styles["int-btn"]}>ADD TO CART</button>
           <i className={styles["material-icons fav"]}>favorite</i>
-          <a href="#">ADD TO WISHLIST</a>
+          <a href="/">ADD TO WISHLIST</a>
           <div onClick={props.next} className={styles["back-arr"]}>
             <i className="fa fa-arrow-right"></i>
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/logo.module.css";
 
-const Logo = () => {
+const Logo = ({username}) => {
   return (
     <div className={styles["vertical-menu-logo"]}>
       <div>
@@ -10,7 +10,7 @@ const Logo = () => {
           src={require("../../../static/images/home-run.png")}
           alt="img"
         />{" "}
-        <span>Username</span>
+        <span>Hi, {username}</span>
       </div>
       <span className={styles["open-menu-btn"]}>
         <hr></hr>
