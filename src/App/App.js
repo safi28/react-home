@@ -15,7 +15,7 @@ import Header from "../components/Header"
 import NotFound from "../components/Error/404"
 import notFoundCmp from "../components/Error/404.2"
 import Profile from "../components/Profile"
-import AddToPage from "../components/PrivatePage/AddToCard"
+import BuyProductPage from "../components/PrivatePage/BuyProductPage"
 import BasketPage from "../components/Basket"
 import parseCookeis from "../parseCookies"
 import jwt from "jsonwebtoken"
@@ -26,7 +26,7 @@ class App extends React.Component {
     super(props)
     const cookies = parseCookeis()
     const isLogged = !!cookies["auth_cookie"]
-    this.state = { isLogged, user: '' }
+    this.state = { isLogged, user: "" }
   }
   login = (history, data) => {
     return userService.login(data).then(async (data) => {
@@ -43,13 +43,20 @@ class App extends React.Component {
       return null
     })
   }
-  render() {
-    const { isLogged } = this.state
-    let user = ''
+  getUsername = () => {
     if (token !== undefined) {
-      const decodedObj= jwt.verify(token, "secret123")
-      user = decodedObj.username
+      const decodedObj = jwt.verify(token, "secret123")
+      this.setState({user: decodedObj.username}, function() {
+        console.log(this.state);
+      })
+      // return decodedObj.username
     }
+  }
+  componentDidMount() {
+    this.getUsername()
+  }
+  render() {
+    const { isLogged, user } = this.state
     return (
       <div className="App">
         {!isLogged ? (
@@ -64,30 +71,33 @@ class App extends React.Component {
             component={
               isLogged
                 ? render(Dashboard, { isLogged })
-                : render(Slider, { isLogged })  }  />
+                : render(Slider, { isLogged }) } />
           <Route
             path="/signin"
             component={
               !isLogged
                 ? render(SignIn, { isLogged, login: this.login })
-                : () => <Redirect to="/" />  } />
+                : () => <Redirect to="/" /> } />
           <Route
             path="/register"
             render={
               !isLogged
                 ? render(Register, { isLogged })
-                : () => <Redirect to="/" />   } />
+                : () => <Redirect to="/" /> }/>
           <Route
             path="/logout"
             render={render(Logout, { isLogged, logout: this.logout })} />
-          <Route path="/profile/:userid" component={ Profile } />
-          <Route path="/interior" render={render(Interior, { isLogged })} />
-          <Route path="/addTo" render={render(AddToPage, { isLogged })} />
-          <Route path="/api/user/basket/:id" render={render(BasketPage, { isLogged })} />
+          <Route path="/profile/:userid" component={Profile} />
+          <Route path="/api/products/interior" render={render(Interior, { isLogged })} />
+          <Route path="/api/products/buy" render={render(BuyProductPage, { isLogged })} />
+          <Route
+            path="/api/user/basket/:id"
+            render={render(BasketPage, { isLogged })} />
           {isLogged ? (
             <Route component={NotFound} />
           ) : (
-            <Route component={notFoundCmp} />  )}
+            <Route component={notFoundCmp} />
+          )}
         </Switch>
         <Footer />
       </div>

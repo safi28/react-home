@@ -1,12 +1,13 @@
 import React from "react"
 import Slideshow from "./Slideshow"
 import Basket from "../../Basket/BasketLogo"
-
+import styles from '../styles/interior.module.css'
 class Interior extends React.Component {
   render() {
     return (
       <>
       <Basket />
+      <h2 className={styles['our-products']}>Our products:</h2>
         <Slideshow
           images={[
             "https://www.orangeinterior.in/imgs/interior-designers-chennai.png",

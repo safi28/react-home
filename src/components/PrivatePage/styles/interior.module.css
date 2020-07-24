@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:800");
 
+.our-products {
+  position: absolute;
+  left: 300px;
+  bottom: 730px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 400;
+  font-size: xx-large;
+}
 .interior {
   background-color: #0c1f2c;
 }

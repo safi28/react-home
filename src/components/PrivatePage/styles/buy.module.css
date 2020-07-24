@@ -1,16 +1,18 @@
 .body {
-    position: relative;
-    height: 800px;
-    background-color: #15111c;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    left: 231px;
-    margin-right: -300px;
-    width: 86.4%;
-    display: block;
-    margin-top: -820px;
-    transition: 0.25s ease-in;
+  position: relative;
+  height: 800px;
+  /* background-color: #7D4CEB; */
+  background: rgb(65,28,189);
+  background: linear-gradient(90deg, rgba(65,28,189,1) 48%, rgba(0,212,255,1) 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 231px;
+  margin-right: -300px;
+  width: 86.4%;
+  display: block;
+  margin-top: -820px;
+  transition: 0.25s ease-in;
 }
 .container {
   display: block;

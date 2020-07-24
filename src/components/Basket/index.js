@@ -1,60 +1,67 @@
 import React from "react";
-import styles from "./basketPage.module.css";
 import jwt from "jsonwebtoken";
 import token from "../../jwtCookie";
 import userService from "../../services/user-service";
+import BasketLabel from "./label";
+import Loader from "../Loader/Loader";
 class BasketPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { products: [], nextSlideStyle: {} };
+    this.state = {
+      products: [],
+      currentSlide: 0,
+      increment: 0,
+      empty: false,
+    };
   }
   async getData() {
     if (token) {
       const decodedObject = jwt.verify(token, "secret123");
       const id = decodedObject.userID;
       userService.getUser(id).then((data) => {
-        this.setState({ products: data.data.products });
+        if (data.data.products.length < 1) {
+          this.setState({ empty: true });
+        } else {
+          this.setState({ products: data.data.products });
+        }
       });
     }
   }
+  increase = () => {
+    if (this.state.currentSlide === this.state.products.length - 1) {
+      this.setState({ currentSlide: 0 });
+    } else {
+      this.setState({ currentSlide: this.state.currentSlide + 1 });
+    }
+  };
   componentDidMount() {
     this.getData();
   }
   render() {
-    const { products } = this.state;
-    return products.map((el, index) => {
-      console.log(index);
-      return (
-        <div className={styles.basket} key={index}>
-          <img src={el.imageUrl} className={styles.backgroundImg} alt="img" />
-          <div className={styles["blog-slider"]}>
-            <div className={styles["blog-slider__wrp swiper-wrapper"]}>
-              <div className={styles["blog-slider__item swiper-slide"]}>
-                <div className={styles["blog-slider__img"]}>
-                  <img src={el.imageUrl} alt="img" />
-                </div>
-                <div className={styles["blog-slider__content"]}>
-                  <span className={styles["blog-slider__code"]}>
-                    Price: $ {el.price}
-                  </span>
-                  <div className={styles["blog-slider__title"]}>
-                    Products: {el.name}
-                  </div>
-                  <div className={styles["blog-slider__text"]}>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Recusandae voluptate repellendus magni illo ea animi?{" "}
-                  </div>
-                  <a href="/" className={styles["blog-slider__button"]}>
-                    DETAILS
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className={styles["blog-slider__pagination"]}></div>
-          </div>
-        </div>
-      );
-    });
+    let { products, currentSlide, empty } = this.state;
+    let el = "";
+    let next = 0;
+    if (products.length > 0) {
+      if (currentSlide === products.length - 1) {
+        next = 0;
+      } else {
+        next = currentSlide + 1;
+      }
+      el = products[next];
+    }
+    if (this.state.products.length <= 0 && empty == false) {
+      return <Loader />;
+    }
+    return (
+      <BasketLabel
+        next={this.increase}
+        name={el.name}
+        imageUrl={el.imageUrl}
+        price={el.price}
+        empty={empty}
+        product={el}
+      />
+    );
   }
 }
 export default BasketPage;
