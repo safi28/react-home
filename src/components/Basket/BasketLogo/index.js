@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./basket.module.css"
+import styles from "../styles/basket.module.css"
 import { Link } from "react-router-dom"
 import token from "../../../jwtCookie"
 import jwt from "jsonwebtoken"

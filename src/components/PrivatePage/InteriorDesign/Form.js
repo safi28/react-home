@@ -1,5 +1,5 @@
-import React from "react"
-import styles from "../styles/interior.module.css"
+import React from "react";
+import styles from "../styles/interior.module.css";
 
 const Form = (props) => {
   return (
@@ -14,6 +14,7 @@ const Form = (props) => {
           alt="star wars"
         />
       </div>
+
       <div className={styles["inter-r"]}>
         <img
           className={styles.helmet}
@@ -35,12 +36,14 @@ const Form = (props) => {
             </div>
             <div className={styles.durability}>
               <h3>{props.nextSlideStyle.percent}%</h3>
-              <h4 className={styles['four-durability']}>
+              <h4 className={styles["four-durability"]}>
                 DURABILITY <br></br> RATE
               </h4>
             </div>
           </div>
-          <button onClick={props.onClick} className={styles["int-btn"]}>ADD TO CART</button>
+          <button onClick={props.onClick} className={styles["int-btn"]}>
+            ADD TO CART
+          </button>
           <i className={styles["material-icons fav"]}>favorite</i>
           <a href="/">ADD TO WISHLIST</a>
           <div onClick={props.next} className={styles["back-arr"]}>
@@ -49,6 +52,6 @@ const Form = (props) => {
         </div>
       </div>
     </div>
-  )
-}
-export default Form
+  );
+};
+export default Form;

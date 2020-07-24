@@ -1,0 +1,13 @@
+.loader-center {
+  width: 520px;
+  position: absolute;
+  left: 800px;
+  bottom: 470px;
+}
+.gif {
+  position: absolute;
+  right: 200px;
+  bottom: 470px;
+  width: 520px;
+  height: 520px;
+}

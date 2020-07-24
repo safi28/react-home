@@ -62,7 +62,7 @@ const Slideshow = ({ images = [], name = [], price = [], percent = [] }) => {
         await productService.create(data)
         const decodedObject = jwt.verify(token, "secret123")
         const id = decodedObject.userID
-        history.push(`api/user/basket/${id}`)
+        history.push(`/api/user/basket/${id}`)
       } else {
         history.push("/")
       }
