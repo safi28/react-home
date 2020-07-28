@@ -1,5 +1,4 @@
-
-function parseCookeis() {
+function parseCookies() {
   return document.cookie.split(" ").reduce((acc, cookie) => {
     const [cookieName, cookieValue] = cookie.split("=");
     acc[cookieName] = cookieValue;
@@ -7,4 +6,4 @@ function parseCookeis() {
   }, {});
 }
 
-export default parseCookeis
+export default parseCookies
