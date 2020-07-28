@@ -1,4 +1,4 @@
-# Home-Beauty
+# Home-Beauty🏡
 > Website for Home comfort. It goes with two sections:
 - Interior Design
 - Smart Home 
