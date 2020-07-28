@@ -7,3 +7,4 @@ router.get("/products", guestAccess, getUserStatus, controllers.getProducts)
 router.post("/create", getUsername, controllers.post)
 
 module.exports = router
+
