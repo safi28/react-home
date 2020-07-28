@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  products: [{type: mongoose.Types.ObjectId, ref: 'Product'}]
+  products: [{type: mongoose.Types.ObjectId, ref: 'Product', unique: true}]
 })
 
 module.exports = mongoose.model("User", userSchema)

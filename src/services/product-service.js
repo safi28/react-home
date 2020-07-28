@@ -10,8 +10,8 @@ const productService = {
       headers: {
         "Content-type": "application/json",
       },
-      credentials: "include",
       body: JSON.stringify(product),
+      credentials: "include",
     })
   },
 }

@@ -4,4 +4,3 @@ const productRouter = require('./products')
 module.exports = {
     authRouter,
     productRouter
-}

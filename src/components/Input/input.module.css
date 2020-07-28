@@ -1,0 +1,15 @@
+.form-field {
+    height: 46px;
+    padding: 0 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: "Rubik", sans-serif;
+    outline: 0;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    margin-top: 20px;
+  }
+  
+  .form-field:focus {
+    border-color: #0f7ef1;
+  }
