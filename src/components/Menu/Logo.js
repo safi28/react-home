@@ -16,7 +16,7 @@ const Logo = () => {
           src={require("../../static/images/home-run.png")}
           alt="img"
         />{" "}
-        <span>Hi, {username}</span>
+        <span>Hi, user</span>
       </div>
       <span className={styles["open-menu-btn"]}>
         <hr></hr>
