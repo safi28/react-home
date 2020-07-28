@@ -1,106 +1,74 @@
 import React from "react"
 import "./App.css"
-import Menu from "../components/PrivatePage/Menu/Menu"
-import Slider from "../components/PublicPage/Slider"
-import Dashboard from "../components/PrivatePage/Dashboard/Dashboard"
-import { Switch, Redirect, Route } from "react-router-dom"
-import SignIn from "../components/Authentication/SignIn/SignInLabel"
-import Logout from "../components/Authentication/Logout"
-import Register from "../components/Authentication/SignUp"
-import render from "./render"
 import userService from "../services/user-service"
-import Interior from "../components/PrivatePage/InteriorDesign"
-import Footer from "../components/Footer"
-import Header from "../components/Header"
-import NotFound from "../components/Error/404"
-import notFoundCmp from "../components/Error/404.2"
-import Profile from "../components/Profile"
-import BuyProductPage from "../components/PrivatePage/BuyProductPage"
-import BasketPage from "../components/Basket"
-import parseCookeis from "../parseCookies"
-import jwt from "jsonwebtoken"
-import token from "../jwtCookie"
-
+import UserContext from "../ContextWrapper/User"
+function parseCookies() {
+  return document.cookie.split(" ").reduce((acc, cookie) => {
+    const [cookieName, cookieValue] = cookie.split("=")
+    acc[cookieName] = cookieValue
+    return acc
+  }, {})
+}
 class App extends React.Component {
   constructor(props) {
     super(props)
-    const cookies = parseCookeis()
+    const cookies = parseCookies()
+    console.log(cookies)
     const isLogged = !!cookies["auth_cookie"]
-    this.state = { isLogged, user: "" }
+    this.state = { isLogged, user: null }
   }
-  login = (history, data) => {
-    return userService.login(data).then(async (data) => {
-      if (data.ok) {
-        this.setState({ isLogged: true })
-        history.push("/")
-      }
+  login = (user) => {
+    this.setState({
+      isLogged: true,
+      user,
     })
   }
   logout = (history) => {
-    userService.logout().then(() => {
-      this.setState({ isLogged: false })
-      history.push("/")
-      return null
-    })
-  }
-  getUsername = () => {
-    if (token !== undefined) {
-      const decodedObj = jwt.verify(token, "secret123")
-      this.setState({user: decodedObj.username}, function() {
-        console.log(this.state);
-      })
-      // return decodedObj.username
-    }
+    document.cookie = "auth_cookie= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+    this.setState({ isLogged: false, user: null })
+    history.push("/")
+    return null
   }
   componentDidMount() {
-    this.getUsername()
+    const token = parseCookies()
+    fetch("http://localhost:9999/api/user/verify", {
+      method: "POST",
+      body: JSON.stringify({
+        token: token,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((promise) => {
+        return promise.json()
+      })
+      .then((response) => {
+        if (response.status) {
+          this.login({
+            username: response.user.username,
+            id: response.user._id,
+          })
+          return
+        } else {
+          this.logout()
+        }
+      })
   }
   render() {
     const { isLogged, user } = this.state
     return (
-      <div className="App">
-        {!isLogged ? (
-          <Header isLogged={isLogged} />
-        ) : (
-          <Menu isLogged={isLogged} user={user} />
-        )}
-        <Switch>
-          <Route
-            path="/"
-            exact
-            component={
-              isLogged
-                ? render(Dashboard, { isLogged })
-                : render(Slider, { isLogged }) } />
-          <Route
-            path="/signin"
-            component={
-              !isLogged
-                ? render(SignIn, { isLogged, login: this.login })
-                : () => <Redirect to="/" /> } />
-          <Route
-            path="/register"
-            render={
-              !isLogged
-                ? render(Register, { isLogged })
-                : () => <Redirect to="/" /> }/>
-          <Route
-            path="/logout"
-            render={render(Logout, { isLogged, logout: this.logout })} />
-          <Route path="/profile/:userid" component={Profile} />
-          <Route path="/api/products/interior" render={render(Interior, { isLogged })} />
-          <Route path="/api/products/buy" render={render(BuyProductPage, { isLogged })} />
-          <Route
-            path="/api/user/basket/:id"
-            render={render(BasketPage, { isLogged })} />
-          {isLogged ? (
-            <Route component={NotFound} />
-          ) : (
-            <Route component={notFoundCmp} />
-          )}
-        </Switch>
-        <Footer />
-      </div>
+      <UserContext.Provider
+        value={{
+          isLogged,
+          user,
+          logIn: this.login,
+          logOut: this.logout,
+        }}
+      >
+        {this.props.children}
+      </UserContext.Provider>
     )
   }
 }
