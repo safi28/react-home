@@ -1,0 +1,17 @@
+const cookieParser = require("cookie-parser")
+const bodyParser = require("body-parser")
+const cors = require("cors")
+const config = require("./config")
+
+module.exports = (app) => {
+  app.use(
+    cors({
+      // exposedHeaders: 'Authorization',
+      origin: "http://localhost:3000",
+      credentials: true,
+    })
+  )
+  app.use(bodyParser.urlencoded({ extended: true }))
+  app.use(bodyParser.json())
+  app.use(cookieParser(config.development.privateKey))
+}
