@@ -27,7 +27,7 @@
 
 ## Setup 🔨
 > npm install in the (server folder & main folder)
-* Run locally
+## Run locally 🏃
 > npm start in the (server folder & main folder)
 
 
