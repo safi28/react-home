@@ -1,4 +1,4 @@
-# Home-Beauty🏡
+# Home-BEAUTY&SMART🏡:battery:
 ** Simple e-commerce site made with ReactJS
 > Website for Home comfort. It goes with two sections:
 - Interior Design
