@@ -24,8 +24,6 @@ class SignUpPage extends React.Component {
     e.preventDefault()
     const { username, password, rePassword } = this.state
     await userService.register({ username, password, rePassword }).then((user) => {
-      console.log(user);
-      // this.context.logIn(user)
       this.props.history.push("/signin")
     })
   }

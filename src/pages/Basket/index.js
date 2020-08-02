@@ -1,67 +1,29 @@
-import React from "react";
-import jwt from "jsonwebtoken";
-import token from "../../jwtCookie";
-import userService from "../../services/user-service";
-import BasketLabel from "./label";
-import Loader from "../../components/Loader/Loader";
-class BasketPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: [],
-      currentSlide: 0,
-      increment: 0,
-      empty: false,
-    };
+import React from "react"
+import BasketLabel from "./label"
+import { useHistory } from "react-router-dom"
+import Loader from "../../components/Loader/Loader"
+import EmptyCartPage from "./emptyCart"
+import BasketSlide from "../../hooks/basketSlideshow"
+
+const BasketPage = () => {
+  const history = useHistory()
+  const { product, increase, empty } = BasketSlide()
+
+  if(empty && !product) {
+    return <EmptyCartPage />
   }
-  async getData() {
-    if (token) {
-      const decodedObject = jwt.verify(token, "secret123");
-      const id = decodedObject.userID;
-      userService.getUser(id).then((data) => {
-        if (data.data.products.length < 1) {
-          this.setState({ empty: true });
-        } else {
-          this.setState({ products: data.data.products });
-        }
-      });
-    }
-  }
-  increase = () => {
-    if (this.state.currentSlide === this.state.products.length - 1) {
-      this.setState({ currentSlide: 0 });
-    } else {
-      this.setState({ currentSlide: this.state.currentSlide + 1 });
-    }
-  };
-  componentDidMount() {
-    this.getData();
-  }
-  render() {
-    let { products, currentSlide, empty } = this.state;
-    let el = "";
-    let next = 0;
-    if (products.length > 0) {
-      if (currentSlide === products.length - 1) {
-        next = 0;
-      } else {
-        next = currentSlide + 1;
-      }
-      el = products[next]
-    }
-    if (this.state.products.length <= 0 && empty == false) {
-      return <Loader />;
-    }
-    return (
-      <BasketLabel
-        next={this.increase}
-        name={el.name}
-        imageUrl={el.imageUrl}
-        price={el.price}
-        empty={empty}
-        product={el}
-      />
-    );
-  }
+
+  return product && !empty ? (
+    <BasketLabel
+      next={increase}
+      name={product.name}
+      imageUrl={product.imageUrl}
+      price={product.price}
+      empty={empty}
+      onClick={() => history.push("/api/products/buy", { state: product })}
+    />
+  ) : (
+    <Loader />
+  )
 }
-export default BasketPage;
+export default BasketPage
