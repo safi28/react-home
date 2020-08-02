@@ -6,11 +6,7 @@ const { signUp, signIn, verify } = require("../controllers/auth");
 const authCookie = config.development.cookie;
 const validations = require("../utils/validator");
 const User = require("../models/User");
-// router.get("/user", (req, res, next) => {
-//   User.find()
-//     .then((user) => res.send(user))
-//     .catch((err) => res.status(500).send("Error"));
-// });
+
 router.get("/user/:id", (req, res, next) => {
   const id = req.params.id;
   User.findOne({ _id: id })

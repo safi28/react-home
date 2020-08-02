@@ -8,10 +8,6 @@ const TokenBlackList = require("../models/TokenBlackList");
 const authCookie = config.development.cookie;
 const privateKey = config.development.privateKey;
 
-// const generateToken = (data) => {
-//   const token = jwt.sign(data, privateKey)
-//   return token
-// }
 const signUp = async (req, res) => {
   const { username, password } = req.body;
   const salt = await bcrypt.genSalt(10);
@@ -28,7 +24,6 @@ const signIn = async (req, res) => {
       userID: user._id,
       username: user.username,
     });
-    // res.header("Authorization", token).send(user);
     res.header("Authorization", token).send(user);
   } else {
     res.status(500).json({ user: "error" });
@@ -90,26 +85,10 @@ const verify = (req, res) => {
         res.status(401).send("UNAUTHORIZED!");
         return;
       }
-
       res.send({
         status: false,
       });
     });
-  // if (token) {
-  //   const decodedObject = verifyToken(token)
-  //   User.findById(decodedObject.userID)
-  //     .then((user) => {
-  //       return res.send({
-  //         status: true,
-  //         user,
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       res.send({
-  //         status: false,
-  //       });
-  //     });
-  // }
 };
 module.exports = {
   signUp,
