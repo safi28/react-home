@@ -1,7 +1,14 @@
 # Home-Beauty🏡
+** Simple e-commerce site made with ReactJS
 > Website for Home comfort. It goes with two sections:
 - Interior Design
+- **View available products**
+- **Add product to your cart**
+- **View you basket**
 - Smart Home 
+- **View available products**
+- **Add product to your cart**
+- **View you basket**
 ---
 [![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger) [![Dependency Status](http://img.shields.io/gemnasium/badges/badgerbadgerbadger.svg?style=flat-square)](https://gemnasium.com/badges/badgerbadgerbadger) [![Coverage Status](http://img.shields.io/coveralls/badges/badgerbadgerbadger.svg?style=flat-square)](https://coveralls.io/r/badges/badgerbadgerbadger)
 ---
