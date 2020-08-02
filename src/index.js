@@ -1,17 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App/App";
-import Navigation from "./Navigation";
+import React from "react"
+import ReactDOM from "react-dom"
+import "./index.css"
+import * as serviceWorker from "./serviceWorker"
+import App from "./App/App"
+import Navigation from "./navigation"
 
 ReactDOM.render(
-  <BrowserRouter>
     <App>
       <Navigation />
-    </App>
-  </BrowserRouter>,
+    </App>,
   document.getElementById("root")
-);
-serviceWorker.unregister();
+)
+serviceWorker.unregister()

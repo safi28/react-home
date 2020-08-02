@@ -1,75 +1,69 @@
-import React from "react"
-import "./App.css"
-import userService from "../services/user-service"
-import UserContext from "../ContextWrapper/User"
-function parseCookies() {
-  return document.cookie.split(" ").reduce((acc, cookie) => {
-    const [cookieName, cookieValue] = cookie.split("=")
-    acc[cookieName] = cookieValue
-    return acc
-  }, {})
-}
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    const cookies = parseCookies()
-    console.log(cookies)
-    const isLogged = !!cookies["auth_cookie"]
-    this.state = { isLogged, user: null }
-  }
-  login = (user) => {
-    this.setState({
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import UserContext from "../ContextWrapper/User";
+import getCookie from "../utils/getCookie";
+
+const App = (props) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const logIn = (user) => {
+    setUser({
+      ...user,
       isLogged: true,
-      user,
-    })
-  }
-  logout = (history) => {
-    document.cookie = "auth_cookie= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
-    this.setState({ isLogged: false, user: null })
-    history.push("/")
-    return null
-  }
-  componentDidMount() {
-    const token = parseCookies()
+    });
+  };
+
+  const logOut = () => {
+    document.cookie = "auth_cookie= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+    setUser({
+      isLogged: false,
+    });
+  };
+  useEffect(() => {
+    const token = getCookie("auth_cookie");
+    if (!token) {
+      logOut();
+      setLoading(false);
+      return;
+    }
+
     fetch("http://localhost:9999/api/user/verify", {
-      method: "POST",
-      body: JSON.stringify({
-        token: token,
-      }),
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Authorization: token,
       },
-      credentials: "include",
     })
       .then((promise) => {
-        return promise.json()
+        return promise.json();
       })
       .then((response) => {
         if (response.status) {
-          this.login({
+          logIn({
             username: response.user.username,
             id: response.user._id,
-          })
-          return
+          });
         } else {
-          this.logout()
+          logOut();
         }
-      })
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading....</div>;
   }
-  render() {
-    const { isLogged, user } = this.state
-    return (
-      <UserContext.Provider
-        value={{
-          isLogged,
-          user,
-          logIn: this.login,
-          logOut: this.logout,
-        }}
-      >
-        {this.props.children}
-      </UserContext.Provider>
-    )
-  }
-}
-export default App
+  return (
+    <UserContext.Provider
+      value={{
+        user,
+        logIn,
+        logOut,
+      }}
+    >
+      {props.children}
+    </UserContext.Provider>
+  );
+};
+export default App;

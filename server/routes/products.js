@@ -1,9 +1,11 @@
-const controllers = require("../controllers/products")
-const { getUsername, guestAccess, getUserStatus } = require("../controllers/auth")
-const router = require("express").Router()
+const router = require("express").Router();
+const controllers = require("../controllers/products");
+const { guestAccess, getUserStatus } = require("../controllers/auth");
+const { auth } = require("../utils");
 
-router.get("/", guestAccess, getUserStatus, getUsername, controllers.get)
-router.get("/products", guestAccess, getUserStatus, controllers.getProducts)
-router.post("/create", getUsername, controllers.post)
+router.get("/all", controllers.get);
+router.get("/", guestAccess, getUserStatus, controllers.get);
+router.get("/products", guestAccess, getUserStatus, controllers.getProducts);
+router.post("/create", auth(), controllers.post);
 
-module.exports = router
+module.exports = router;

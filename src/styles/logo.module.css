@@ -26,7 +26,13 @@
   cursor: pointer;
 }
 .vertical-menu-logo .open-menu-btn hr {
-  margin: 5px 0;
+  margin: 8px 0;
+  width: 110px;
+}
+.vertical-menu-logo .open-menu-btn span {
+  position: absolute;
+  left: -63px;
+  top: -25px;
 }
 .image {
   width: 50px;

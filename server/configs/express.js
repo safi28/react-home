@@ -6,9 +6,7 @@ const config = require("./config")
 module.exports = (app) => {
   app.use(
     cors({
-      // exposedHeaders: 'Authorization',
-      origin: "http://localhost:3000",
-      credentials: true,
+      exposedHeaders: 'Authorization'
     })
   )
   app.use(bodyParser.urlencoded({ extended: true }))

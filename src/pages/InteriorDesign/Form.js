@@ -23,7 +23,7 @@ const Form = (props) => {
         />
         <div className={styles.productInfo}>
           <h1>
-            {props.nextSlideStyle.name} <br></br> STYLE
+            {props.nextSlideStyle.name} <br></br> 
           </h1>
           <h2>${props.nextSlideStyle.price}</h2>
           <div className={styles.details}>
@@ -35,7 +35,7 @@ const Form = (props) => {
               <p>XL</p>
             </div>
             <div className={styles.durability}>
-              <h3>{props.nextSlideStyle.percent}%</h3>
+              <h3>{props.nextSlideStyle.durability}%</h3>
               <h4 className={styles["four-durability"]}>
                 DURABILITY <br></br> RATE
               </h4>
