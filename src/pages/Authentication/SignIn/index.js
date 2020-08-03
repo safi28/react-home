@@ -1,7 +1,6 @@
 import React, { useContext, Component, useState } from "react";
 import FormLabel from "../Form";
 import UserContext from "../../../ContextWrapper/User";
-import userService from "../../../services/user-service";
 import authenticate from "../../../utils/auth";
 import { useHistory } from "react-router-dom";
 
@@ -35,7 +34,7 @@ const SignInPage = () => {
       isRegister={false}
       btnTitle={"LOGIN"}
       textNavigator={"Does not have an account?"}
-      link={"/register"}
+      link={"/api/user/signup"}
       navigate={"Sign up"}
       slide={"right"}
       slideText={"right-p"}

@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import Form from "./Form"
+import Form from "../../components/ProductForm/Form"
 import productService from "../../services/product-service"
 import Slide from "../../hooks/slideshow"
 import { useHistory } from "react-router-dom"

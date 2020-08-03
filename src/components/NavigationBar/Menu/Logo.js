@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "../../../styles/logo.module.css";
+import { Link } from "react-router-dom";
+// import Link from "../../../shared/Link/Link";
 
 const Logo = () => { 
   return (
@@ -12,8 +14,7 @@ const Logo = () => {
         />{" "}
       </div>
       <span className={styles["open-menu-btn"]}>
-        
-      <span>   <hr /> Profile <hr /></span>
+      <Link to='/api/user/profile'><span><hr /> Profile <hr /></span></Link>
       </span>
     </div>
   );

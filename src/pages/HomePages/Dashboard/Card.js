@@ -13,6 +13,7 @@ const Card = () => {
             image="https://cdn.dribbble.com/users/93860/screenshots/9710223/media/dfa76676fcbb139505556fd75b40de69.gif"
             text="interior-text"
             title="Interior Design"
+            linkTo="/api/products/interior"
             hr="interior-hr"
             p="interior-p"
             span="interior-span"
@@ -24,6 +25,7 @@ const Card = () => {
             classImage="intr"
             image="https://i.pinimg.com/originals/c3/a6/cb/c3a6cbbc1e1d5fed032ea0a49bb9f545.gif"
             text="smart-text"
+            linkTo='/api/products/smart'
             title="Smart Home"
             hr="smart-hr"
             p="smart-p"

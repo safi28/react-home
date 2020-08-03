@@ -8,12 +8,11 @@ import BasketSlide from "../../hooks/basketSlideshow"
 const BasketPage = () => {
   const history = useHistory()
   const { product, increase, empty } = BasketSlide()
-
   if(empty && !product) {
     return <EmptyCartPage />
   }
-
   return product && !empty ? (
+    
     <BasketLabel
       next={increase}
       name={product.name}

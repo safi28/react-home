@@ -11,8 +11,8 @@ const Header = ({ isLogged }) => {
             alt="img" />
           <ul>
             <Link to="/">Home</Link>
-            {!isLogged && <Link to="/signin">Sign In</Link>}
-            {!isLogged && <Link to="/register">SignUp</Link>}
+            {!isLogged && <Link to="/api/user/signin">Sign In</Link>}
+            {!isLogged && <Link to="/api/user/signup">SignUp</Link>}
           </ul>
         </header>
         <div id={styles["outer-circle"]}></div>

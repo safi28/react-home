@@ -16,7 +16,7 @@ const BasketLabel = (props) => {
                 Price: $ {props.price}
               </span>
               <div className={styles["blog-slider__title"]}>
-                Products: {props.name}
+                Product: {props.name}
               </div>
               <div className={styles["blog-slider__text"]}>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.

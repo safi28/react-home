@@ -1,18 +1,40 @@
-import React from "react";
-import Form from "../InteriorDesign/Form";
+import React, { useContext } from "react";
+import Form from "../../components/ProductForm/Form";
 import Slide from "../../hooks/slideshow";
-import Loader from '../../components/Loader/Loader'
+import Loader from "../../components/Loader/Loader";
+import productService from "../../services/product-service";
+import UserContext from "../../ContextWrapper/User";
+import { useHistory } from "react-router-dom";
+import Basket from "../Basket/BasketLogo";
 const AutomationPage = () => {
-    const { smartProducts, currentSlide, increase, decrease } = Slide()
+  const history = useHistory();
+  const context = useContext(UserContext);
+  const { user } = context;
+  const { smartProducts, increase, decrease } = Slide();
+
+  const addDataToUser = async () => {
+    if (smartProducts) {
+      await productService.createSmart(smartProducts);
+      const id = user.id;
+      history.push(`/api/user/basket/${id}`);
+    } else {
+      history.push("/api/products/smart");
+    }
+  };
+
   return smartProducts ? (
+    <>
+    <Basket />
     <Form
       previous={decrease}
       nextSlideStyle={smartProducts}
       next={increase}
-    //   onClick={addDataToUser}
+      onClick={addDataToUser}
     />
+    </>
   ) : (
     <Loader />
-  )
+  );
 };
+
 export default AutomationPage;

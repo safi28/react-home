@@ -5,7 +5,7 @@ const CardLabel = (props) => {
   return (
     <div className={styles[props.mainStyle]}>
       <img className={styles[props.classImage]} src={props.image} alt="img" />
-      <Link to="/api/products/interior">
+      <Link to={props.linkTo}>
         <button className={styles["button"]}>Check Now</button>
       </Link>
       <h1 className={styles[props.text]}>

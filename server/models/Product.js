@@ -8,6 +8,9 @@ const Product = new mongoose.Schema({
   price: String,
   durability: String,
   imageUrl: String,
+  createdAt: {
+    type: String,
+  },
   user: [{type: mongoose.Types.ObjectId, unique: true, ref: 'User', unique: true}]
 })
 module.exports = mongoose.model("Product", Product)

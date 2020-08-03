@@ -20,6 +20,7 @@ const App = (props) => {
       isLogged: false,
     });
   };
+
   useEffect(() => {
     const token = getCookie("auth_cookie");
     if (!token) {
@@ -54,6 +55,7 @@ const App = (props) => {
   if (loading) {
     return <div>Loading....</div>;
   }
+
   return (
     <UserContext.Provider
       value={{
@@ -66,4 +68,5 @@ const App = (props) => {
     </UserContext.Provider>
   );
 };
+
 export default App;
