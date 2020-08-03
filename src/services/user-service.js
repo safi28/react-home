@@ -11,7 +11,7 @@ const userService = {
     })
   },
   getUser: (id) => {
-    return axios.get(`http://localhost:9999/api/user/user/${id}`)
+    return axios.get(`http://localhost:9999/api/user/interior/${id}`)
   },
   register: (newUser) => {
     return axios.post("http://localhost:9999/api/user/register", newUser)

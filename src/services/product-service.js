@@ -15,6 +15,16 @@ const productService = {
       },
     })
   },
+  createSmart: (product) => {
+    return fetch("http://localhost:9999/api/automation/create", {
+      method: "POST",
+      body: JSON.stringify(product),
+      headers: {
+        "Content-type": "application/json",
+        'Authorization': getCookie('auth_cookie')
+      },
+    })
+  },
   verify: (token) => {
    return fetch('http://localhost:9999/api/user/verify', {
       method: 'POST',

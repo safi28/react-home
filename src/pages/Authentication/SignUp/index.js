@@ -1,55 +1,43 @@
-import React from "react"
-import userService from "../../../services/user-service"
+import React, { useState, useContext } from "react"
 import FormLabel from "../Form"
 import UserContext from "../../../ContextWrapper/User"
+import { useHistory } from "react-router-dom"
+import userService from '../../../services/user-service'
+const SignUpPage = () => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [rePassword, setRePassword] = useState('')
+  const context = useContext(UserContext)
+  const history = useHistory()
 
-class SignUpPage extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      username: "",
-      password: "",
-      rePassword: "",
-    }
-  }
-  static contextType = UserContext
-
-  onChange = (event, type) => {
-    const newState = {}
-    newState[type] = event.target.value
-    this.setState(newState)
-  }
-
-  submitHandler = async(e) => {
-    e.preventDefault()
-    const { username, password, rePassword } = this.state
-    await userService.register({ username, password, rePassword }).then((user) => {
-      this.props.history.push("/signin")
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    userService.register({username, password, rePassword})
+    .then(user => {
+      history.push('/api/user/signin')
     })
   }
-  render() {
-    const { username, password, rePassword } = this.state
      return (
       <FormLabel
-      onClick ={this.submitHandler}
+      onClick ={submitHandler}
         title={"Hi User "}
         emoji={"❤️"}
         secondTitle={"Register and get access to our great app"}
-        usernameOnChangeHandler={(e) => this.onChange(e, 'username')}
+        usernameOnChangeHandler={(e) => setUsername(e.target.value)}
         userValue={username}
-        passwordOnChangeHandler={(e) => this.onChange(e, 'password')}
+        passwordOnChangeHandler={(e) => setPassword(e.target.value)}
         passValue={password}
         isRegister={true}
-        repeatPasswordOnChangeHandler={(e) => this.onChange(e, 'rePassword')}
+        repeatPasswordOnChangeHandler={(e) => setRePassword(e.target.value)}
         rePassValue={rePassword}
         btnTitle={"REGISTER"}
         textNavigator={"Already have an account?"}
-        link={"/signin"}
+        link={"/api/user/signin"}
         navigate={"Sign in"}
         slide={"right-second"}
         slideText={"right-p"}
       />
     )
-  }
 }
+
 export default SignUpPage

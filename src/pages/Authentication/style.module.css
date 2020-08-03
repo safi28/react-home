@@ -185,7 +185,9 @@ body {
   -webkit-animation-delay: 0.5s;
   animation-delay: 1s;
 }
-
+.link {
+  color: #000;
+}
 @-webkit-keyframes move {
   0% {
     opacity: 0;

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/redesign.module.css";
-import RedesignLabel from './Redesign-Label'
+import RedesignLabel from "./Redesign-Label";
 const Redesign = () => {
   return (
     <section id={styles["why-redesign"]}>
@@ -12,18 +12,16 @@ const Redesign = () => {
           latest lifestyle technology."
       />
       <RedesignLabel
-        name="Maximizing home security"
-        description="Home Automation systems can connect motion detectors, surveillance
-        cameras, automated door locks, and other tangible security measures
-        throughout your home so you can activate them from one mobile device
-        before heading to bed."
+        name="Beautiful and comfortable"
+        description="Your home interior design based on your taste is a home with a story of who you are. 
+        Make the best possible use of the available space and make it significant."
       />
       <RedesignLabel
-        name="Remote control of home functions"
-        description="Don’t underestimate the power of being able to control your home’s
-        functions from a distance. On an exceptionally hot day, you can order
-        your house to become cooler in just enough time before you get home
-        from work."
+        name="Maximizing home security"
+        description="Home Automation systems can connect motion detectors, surveillance
+        cameras, automated door locks, and other security measures
+        throughout your home so you can activate them from one mobile device
+        before heading to bed."
       />
     </section>
   );

@@ -5,6 +5,7 @@ import { useState } from 'react'
 const BasketSlide = () => {
     const { product, empty } = GetUserProducts()
     const [currentSlide, setCurrentSlide] = useState(0)
+
     const increase = () => {
         if (currentSlide === product.length - 1) {
             setCurrentSlide(0)

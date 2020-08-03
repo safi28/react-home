@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./style.module.css";
-import Link from "../../shared/Link/Link";
 import Input from "../../components/Input/Input";
+import { Link } from "react-router-dom";
 
 const FormLabel = (props) => {
   return (
