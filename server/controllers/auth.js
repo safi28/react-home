@@ -52,6 +52,8 @@ const verify = (req, res) => {
       })
     })
 }
+
+
 module.exports = {
   signUp,
   signIn,

@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  imageUrl: { type: String },
   products: [{type: mongoose.Types.ObjectId, ref: 'Product' }],
   smartProducts: [{type: mongoose.Types.ObjectId, ref:'Automation'}]
 })

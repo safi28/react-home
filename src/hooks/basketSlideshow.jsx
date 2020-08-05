@@ -1,6 +1,5 @@
-import React from 'react'
-import GetUserProducts from './getUserProduct'
 import { useState } from 'react'
+import GetUserProducts from './getUserProduct'
 
 const BasketSlide = () => {
     const { product, empty } = GetUserProducts()

@@ -20,7 +20,6 @@ class Navigation extends Component {
   render() {
     const { user, logIn } = this.context
     const isLogged = user && user.isLogged
-    console.log(isLogged)
     return (
       <BrowserRouter>
         <NavigatePage />
@@ -68,15 +67,12 @@ class Navigation extends Component {
                isLogged
                  ? render(Profile, { isLogged })
                  : () => <Redirect to="/" /> } />
-           {isLogged ? (
-            <Route component={NotFound} />
-          ) : (
-            <Route component={NotFoundCmp} />
-          )}
+            <Route> {isLogged ? <NotFound /> : <NotFoundCmp /> }</Route>
         </Switch>
         <Footer />
       </BrowserRouter>
     )
   }
 }
+
 export default Navigation

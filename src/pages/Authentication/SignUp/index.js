@@ -1,13 +1,11 @@
-import React, { useState, useContext } from "react"
+import React, { useState } from "react"
 import FormLabel from "../Form"
-import UserContext from "../../../ContextWrapper/User"
 import { useHistory } from "react-router-dom"
 import userService from '../../../services/user-service'
 const SignUpPage = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [rePassword, setRePassword] = useState('')
-  const context = useContext(UserContext)
   const history = useHistory()
 
   const submitHandler = async (e) => {
