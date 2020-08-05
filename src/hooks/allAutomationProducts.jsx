@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { useCallback } from 'react'
 import { useEffect } from 'react'
 import getAutomationProducts from '../utils/getAutomationProducs'
@@ -13,6 +13,7 @@ const AllAutomationProducts = () => {
     useEffect(() => {
         getData()
     }, [getData])
+    
     return { smartProducts: products }
 }
 export default AllAutomationProducts

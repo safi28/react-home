@@ -1,4 +1,4 @@
-import React, { useContext, Component, useState } from "react";
+import React, { useContext, useState } from "react";
 import FormLabel from "../Form";
 import UserContext from "../../../ContextWrapper/User";
 import authenticate from "../../../utils/auth";
@@ -23,6 +23,7 @@ const SignInPage = () => {
     })
   }
   return (
+    <>
     <FormLabel
       onClick={submitHandler}
       title={"Good to have you Back"}
@@ -39,6 +40,8 @@ const SignInPage = () => {
       slide={"right"}
       slideText={"right-p"}
     />
+
+    </>
   );
 }
 export default SignInPage;

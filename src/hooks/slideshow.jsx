@@ -1,8 +1,8 @@
-import React from 'react'
 import { useState } from 'react'
 import AllProducts from './allProducts'
 import AllAutomationProducts from './allAutomationProducts'
-import Increase from '../components/Slideshow'
+import Increase from '../components/Slideshow/Increase'
+import Decrease from '../components/Slideshow/Decrease'
 
 const Slide = () => {
     const { products } = AllProducts()
@@ -11,13 +11,7 @@ const Slide = () => {
     const [currentSmartSlide, setCurrentSmartSlide] = useState(0)
 
     const increase = Increase({ currentSlide, products, setCurrentSlide, currentSmartSlide, smartProducts, setCurrentSmartSlide })
-    const decrease = () => {
-        if (currentSlide > 0) {
-            setCurrentSlide(currentSlide - 1)
-        } else {
-            setCurrentSlide(products.length - 1)
-        }
-    }
+    const decrease = Decrease({ currentSlide, products, setCurrentSlide, currentSmartSlide, smartProducts, setCurrentSmartSlide })
     return { products: products[currentSlide], smartProducts: smartProducts[currentSmartSlide], currentSlide, increase, decrease }
 }
 
