@@ -1,4 +1,4 @@
-import React, { useContext, Component, useState } from "react";
+import React, { useContext, useState } from "react";
 import FormLabel from "../Form";
 import UserContext from "../../../ContextWrapper/User";
 import authenticate from "../../../utils/auth";

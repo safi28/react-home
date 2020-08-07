@@ -7,7 +7,7 @@ const CreditCard = (props) => {
       <h1>${props.price}</h1>
       <div className={styles["card-type"]}>
         <a className={styles["card active"]} href="/">
-          <img src={props.imgSrc} />
+          <img src={props.imgSrc} alt='img' />
         </a>
       </div>
     </header>
