@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import UserContext from "../ContextWrapper/User";
 import getCookie from "../utils/getCookie";
+import Loader from '../components/Loader/Loader'
 
 const App = (props) => {
   const [user, setUser] = useState(null);
@@ -15,7 +16,7 @@ const App = (props) => {
   };
 
   const logOut = () => {
-    document.cookie = "auth_cookie= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+    document.cookie = "auth_cookie=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
     setUser({
       isLogged: false,
     });
@@ -53,9 +54,8 @@ const App = (props) => {
   }, []);
 
   if (loading) {
-    return <div>Loading....</div>;
+    return <Loader />
   }
-
   return (
     <UserContext.Provider
       value={{

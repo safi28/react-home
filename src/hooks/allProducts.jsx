@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { useCallback } from 'react'
 import { useEffect } from 'react'
 import getProducts from '../utils/getProducts'

@@ -6,11 +6,15 @@ function ShowDetail() {
       <span className={styles.fa}>
         <img
           className={styles.gif}
-          src="https://cdn.lowgif.com/full/dc86e54ceca03be4-loading-spinner-animated-gif-83320-mediabin.gif"
+          src={"https://cdn.lowgif.com/full/dc86e54ceca03be4-loading-spinner-animated-gif-83320-mediabin.gif"}
           role='img'
+          alt="loader"
         />
       </span>
-      <h1>Loading...</h1>
+      <img
+          alt="loader"
+          src={'https://i.gifer.com/ZZ5H.gif'} 
+        />
     </div>
   );
 }

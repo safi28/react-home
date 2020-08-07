@@ -23,6 +23,7 @@ const SignInPage = () => {
     })
   }
   return (
+    <>
     <FormLabel
       onClick={submitHandler}
       title={"Good to have you Back"}
@@ -39,6 +40,8 @@ const SignInPage = () => {
       slide={"right"}
       slideText={"right-p"}
     />
+
+    </>
   );
 }
 export default SignInPage;

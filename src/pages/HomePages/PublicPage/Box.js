@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from './styles/box.module.css'
+import { useHistory } from 'react-router-dom'
 const Box = (props) => {
+  const history = useHistory()
   return (
     <div className={styles[props.mainStyle]}>
       <div className={styles.bg}></div>
@@ -9,7 +11,7 @@ const Box = (props) => {
         <p>
           {props.description}
         </p>
-        <button className={styles[props.buttonStyle]}>Check Now</button>
+        <button onClick={() => history.push('/api/user/signin')} className={styles[props.buttonStyle]}>Check Now</button>
       </div>
       <div className={styles.illustration}>
         <div className={styles.inner}></div>
