@@ -1,3 +1,4 @@
+import React from "react";
 
 const Increase = ({ currentSlide, products, setCurrentSlide, currentSmartSlide, smartProducts, setCurrentSmartSlide }) => {
   const increase = () => {

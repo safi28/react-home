@@ -1,6 +1,7 @@
+import React from 'react'
 import UserContext from "../../ContextWrapper/User";
 import userInfo from "../../utils/userInfo";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useCallback } from "react";
 
 const GetImage = () => {
   const [image, setImage] = useState("");
@@ -15,7 +16,6 @@ const GetImage = () => {
   useEffect(() => {
     getData();
   }, [getData]);
-  
   return { image };
 };
 

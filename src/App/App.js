@@ -16,7 +16,7 @@ const App = (props) => {
   };
 
   const logOut = () => {
-    document.cookie = "auth_cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "auth_cookie=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
     setUser({
       isLogged: false,
     });
@@ -42,7 +42,6 @@ const App = (props) => {
       })
       .then((response) => {
         if (response.status) {
-          console.log(response);
           logIn({
             username: response.user.username,
             id: response.user._id,
@@ -57,7 +56,6 @@ const App = (props) => {
   if (loading) {
     return <Loader />
   }
-
   return (
     <UserContext.Provider
       value={{

@@ -1,8 +1,6 @@
 const { Router } = require("express")
 const router = Router()
-const config = require("../configs/config")
 const { signUp, signIn, verify } = require("../controllers/auth")
-const authCookie = config.development.cookie
 const User = require("../models/User")
 const multer = require("multer")
 const path = require('path')
@@ -56,7 +54,7 @@ router.post("/register", async (req, res) => {
   }
 })
 router.post("/signin", async (req, res) => {
-  const { username, password } = req.body
+  const { username } = req.body
   const user = await User.findOne({ username })
   if (user === null) {
     return res.status(401).send("User does not exist")
@@ -68,8 +66,5 @@ router.post("/signin", async (req, res) => {
 })
 
 router.get("/verify", verify)
-router.post("/logout", (req, res) => {
-  return res.clearCookie(authCookie).send("Logout successfully")
-})
 
 module.exports = router

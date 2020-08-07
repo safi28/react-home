@@ -2,16 +2,9 @@ import React, { useContext } from 'react'
 import Icons from './Icons'
 import Logo from './Logo'
 import styles from "../../../styles/dashboard.module.css";
-import {Link, useHistory} from 'react-router-dom'
-import UserContext from '../../../ContextWrapper/User';
+import {Link} from 'react-router-dom'
 
 const Menu = () => {
-  const history = useHistory()
-  const contextValue = useContext(UserContext)
-  const logOut = () => {
-    contextValue.logOut()
-    history.push('/')
-  }
     return (
         <nav className={styles["vertical-menu-wrapper"]}>
         <Logo  />
@@ -24,7 +17,6 @@ const Menu = () => {
              <hr />
              <li className={styles["dash-li"]}>Setting</li>
              <li className={styles["dash-li"]}>Privacy</li>
-             {<button onClick={logOut} className={styles["logout"]}>Logout</button>}
              <li id={styles["user-info"]}>
                <span>online</span>
              </li>

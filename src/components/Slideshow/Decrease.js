@@ -1,3 +1,4 @@
+import React from "react";
 
 const Decrease = ({ currentSlide, products, setCurrentSlide, currentSmartSlide, smartProducts, setCurrentSmartSlide }) => {
   const decrease = () => {

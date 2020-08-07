@@ -30,6 +30,7 @@ const ImageUpload = () => {
       <form>
         <input type="file" id="file" onChange={(e) => _handleImageChange(e)} />
         <label htmlFor="file">choose a file</label>
+
         {image ? (
           <img className={styles["body-image"]} src={image} alt='img' />
         ) : (
