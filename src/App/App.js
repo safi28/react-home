@@ -1,34 +1,29 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import UserContext from "../ContextWrapper/User";
-import getCookie from "../utils/getCookie";
+import React, { useState, useEffect } from "react"
+import "./App.css"
+import UserContext from "../ContextWrapper/User"
+import getCookie from "../utils/getCookie"
 import Loader from '../components/Loader/Loader'
 
 const App = (props) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   const logIn = (user) => {
     setUser({
       ...user,
       isLogged: true,
-    });
-  };
+    })
+  }
 
   const logOut = () => {
-    document.cookie = "auth_cookie=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    document.cookie = "auth_cookie=; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
     setUser({
       isLogged: false,
-    });
-  };
+    })
+  }
 
   useEffect(() => {
     const token = getCookie("auth_cookie");
-    if (!token) {
-      logOut();
-      setLoading(false);
-      return;
-    }
 
     fetch("http://localhost:9999/api/user/verify", {
       method: "GET",
@@ -38,20 +33,21 @@ const App = (props) => {
       },
     })
       .then((promise) => {
-        return promise.json();
+        return promise.json()
       })
       .then((response) => {
+        console.log(response)
         if (response.status) {
           logIn({
             username: response.user.username,
             id: response.user._id,
-          });
+          })
         } else {
-          logOut();
+          logOut()
         }
-        setLoading(false);
-      });
-  }, []);
+        setLoading(false)
+      })
+  }, [])
 
   if (loading) {
     return <Loader />
@@ -66,7 +62,7 @@ const App = (props) => {
     >
       {props.children}
     </UserContext.Provider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

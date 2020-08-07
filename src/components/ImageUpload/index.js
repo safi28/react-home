@@ -25,6 +25,7 @@ const ImageUpload = () => {
     );
     setUpdate(data.data);
   };
+  console.log(image);
   return (
     <div className={styles["body-image"]}>
       <form>

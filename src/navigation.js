@@ -42,7 +42,7 @@ class Navigation extends Component {
             render={
               isLogged
                 ? render(Interior, { isLogged })
-                : () => <Redirect to="/" />  }  />
+                : () => <Redirect to="/" />  } />
             <Route
              path="/api/products/smart"
              render={
@@ -54,7 +54,7 @@ class Navigation extends Component {
             render={
               isLogged
                 ? render(BuyProductPage, { isLogged })
-                : () => <Redirect to="/" />  }  />
+                : () => <Redirect to="/" />  } />
           <Route
             path="/api/user/basket/:userid"
             render={
