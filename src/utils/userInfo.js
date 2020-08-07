@@ -7,7 +7,6 @@ const userInfo = async (id) => {
       'Authorization': getCookie('auth_cookie')
     },
   })
-  console.log(response);
   return response.json()
 };
 export default userInfo
