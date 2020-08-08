@@ -51,17 +51,21 @@ router.post("/register", async (req, res) => {
   const status = await signUp(req, res)
   if (status) {
     res.status(200).send(user)
+  } else {
+    return res.status(400).json('Check your fields')
   }
 })
 router.post("/signin", async (req, res) => {
   const { username } = req.body
   const user = await User.findOne({ username })
   if (user === null) {
-    return res.status(401).send("User does not exist")
+    return res.status(401).json("User does not exist")
   }
   const status = await signIn(req, res)
   if (status) {
-    res.status(200).send(user)
+    return res.status(200).send(user)
+  } else {
+    return res.status(401).json("Password is incorrect")
   }
 })
 

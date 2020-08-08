@@ -36,7 +36,6 @@ const App = (props) => {
         return promise.json()
       })
       .then((response) => {
-        console.log(response)
         if (response.status) {
           logIn({
             username: response.user.username,
@@ -50,7 +49,9 @@ const App = (props) => {
   }, [])
 
   if (loading) {
-    return <Loader />
+    return (
+    <Loader />
+    )
   }
   return (
     <UserContext.Provider

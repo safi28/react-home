@@ -1,14 +1,15 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
-import * as serviceWorker from "./serviceWorker"
+import { ToastProvider } from "react-toast-notifications";
 import App from "./App/App"
 import Navigation from "./navigation"
 
 ReactDOM.render(
+  <ToastProvider>
     <App>
       <Navigation />
-    </App>,
+    </App>
+    </ToastProvider>,
   document.getElementById("root")
 )
-serviceWorker.unregister()

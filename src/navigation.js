@@ -24,13 +24,13 @@ class Navigation extends Component {
       <BrowserRouter>
         <NavigatePage />
         <Switch>
-          <Route path="/" exact component={render(HomePage, isLogged)} />
+          <Route path="/" exact component={ render(HomePage, isLogged) } />
           <Route
             path="/api/user/signin"
             component={
               !isLogged
                 ? render(SignInPage, { isLogged, login: logIn })
-                : () => <Redirect to="/" /> }  />
+                : () => <Redirect to="/" /> } />
           <Route
             path="/api/user/signup"
             render={
