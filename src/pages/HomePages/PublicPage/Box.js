@@ -11,7 +11,7 @@ const Box = (props) => {
         <p>
           {props.description}
         </p>
-        <button onClick={() => history.push('/api/user/signin')} className={styles[props.buttonStyle]}>Check Now</button>
+        <button id="redirect-btn" type='button' onClick={() => history.push('/api/user/signin')} className={styles[props.buttonStyle]}>Check Now</button>
       </div>
       <div className={styles.illustration}>
         <div className={styles.inner}></div>

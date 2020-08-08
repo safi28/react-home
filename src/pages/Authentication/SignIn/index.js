@@ -1,29 +1,38 @@
 import React, { useContext, useState } from "react";
+import { useToasts } from "react-toast-notifications";
 import FormLabel from "../Form";
 import UserContext from "../../../ContextWrapper/User";
 import authenticate from "../../../utils/auth";
 import { useHistory } from "react-router-dom";
 
 const SignInPage = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const context = useContext(UserContext)
-  const history = useHistory()
+  const { addToast } = useToasts();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const context = useContext(UserContext);
+  const history = useHistory();
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    await authenticate("http://localhost:9999/api/user/signin", {
-      username, 
-      password
-    }, (user) => {
-      context.logIn(user)
-      history.push('/')
-    }, (e) => {
-      console.log('Error', e);
-    })
-  }
+    await authenticate(
+      "http://localhost:9999/api/user/signin",
+      {
+        username,
+        password,
+      },
+      (user) => {
+        addToast("Login successfylly", { appearance: "success" });
+        context.logIn(user);
+        history.push("/");
+      },
+      (e) => {
+        addToast(e.message, { appearance: "error" });
+        history.push("/api/user/signin");
+      }
+    );
+  };
+
   return (
-    <>
     <FormLabel
       onClick={submitHandler}
       title={"Good to have you Back"}
@@ -40,8 +49,7 @@ const SignInPage = () => {
       slide={"right"}
       slideText={"right-p"}
     />
-
-    </>
   );
-}
+};
+
 export default SignInPage;

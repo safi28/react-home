@@ -11,7 +11,7 @@ const Input = (props) => {
         onChange={props.onChange}
         disabled={props.isDisabled}
       />
-      {/* {props.error && <div className="error">{props.error}</div>} */}
+      {props.error && <div className="error">{props.error}</div>}
     </>
   );
 };

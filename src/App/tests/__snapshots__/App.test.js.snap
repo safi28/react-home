@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render authentictad page 1`] = `
+<div
+  className="dashboard"
+>
+  <div
+    className="select-two"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="card"
+      >
+        <p>
+          .
+        </p>
+        <div
+          className="box"
+        >
+          <img
+            alt="img"
+            className="intr"
+            src="https://cdn.dribbble.com/users/93860/screenshots/9710223/media/dfa76676fcbb139505556fd75b40de69.gif"
+          />
+          <a
+            href="/api/products/interior"
+            onClick={[Function]}
+          >
+            <button
+              className="button"
+            >
+              Check Now
+            </button>
+          </a>
+          <h1
+            className="interior-text"
+          >
+            Interior Design
+            <hr
+              className="interior-hr"
+            />
+             
+            <p
+              className="interior-p"
+            >
+              <span
+                className="interior-span"
+              >
+                Checkout our designs
+              </span>
+              <img
+                alt="img"
+                className="arrow-image"
+                src="next.png"
+              />
+            </p>
+          </h1>
+        </div>
+        <div
+          className="box-second"
+        >
+          <img
+            alt="img"
+            className="intr"
+            src="https://i.pinimg.com/originals/c3/a6/cb/c3a6cbbc1e1d5fed032ea0a49bb9f545.gif"
+          />
+          <a
+            href="/api/products/smart"
+            onClick={[Function]}
+          >
+            <button
+              className="button"
+            >
+              Check Now
+            </button>
+          </a>
+          <h1
+            className="smart-text"
+          >
+            Smart Home
+            <hr
+              className="smart-hr"
+            />
+             
+            <p
+              className="smart-p"
+            >
+              <span
+                className="smart-span"
+              >
+                Checkout our designs
+              </span>
+              <img
+                alt="img"
+                className="smart"
+                src="return.png"
+              />
+            </p>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`App should run App 1`] = `
+<div
+  className="loader-center"
+>
+  <span
+    className="fa"
+  >
+    <img
+      alt="loader"
+      className="gif"
+      role="img"
+      src="https://cdn.lowgif.com/full/dc86e54ceca03be4-loading-spinner-animated-gif-83320-mediabin.gif"
+    />
+  </span>
+  <img
+    alt="loader"
+    src="https://i.gifer.com/ZZ5H.gif"
+  />
+</div>
+`;
+
+exports[`App should run non-authenticated page 1`] = `
+<main>
+  <section>
+    <div
+      className="container"
+    >
+      <div
+        className="slider"
+      >
+        <div
+          className="box1-box"
+        >
+          <div
+            className="bg"
+          />
+          <div
+            className="details"
+          >
+            <h1>
+              Interior Design
+            </h1>
+            <p>
+              You can seek through the new and modern interior designs. Be
+ inspired to change your home interior into a beautiful
+ comfortable place.
+            </p>
+            <button
+              className="box1-button"
+              id="redirect-btn"
+              onClick={[Function]}
+              type="button"
+            >
+              Check Now
+            </button>
+          </div>
+          <div
+            className="illustration"
+          >
+            <div
+              className="inner"
+            />
+          </div>
+        </div>
+        <div
+          className="box5-box"
+        >
+          <div
+            className="bg"
+          />
+          <div
+            className="details"
+          >
+            <h1>
+              Smart Home Technology
+            </h1>
+            <p>
+              Home Automation is the best thing in 2020. Connecting all of
+ your appliances to your smartphone is an obvious plus – it
+ means that you can run your laundry while you’re at work, or
+ save money on your energy bill by optimizing your heating to
+ only be on when you’re home (and maybe 15 minutes either
+ side).
+            </p>
+            <button
+              className="box5-button"
+              id="redirect-btn"
+              onClick={[Function]}
+              type="button"
+            >
+              Check Now
+            </button>
+          </div>
+          <div
+            className="illustration"
+          >
+            <div
+              className="inner"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    id="why-redesign"
+  >
+    <h1>
+      Why redesign and automate your home?
+    </h1>
+    <article>
+      <h2>
+        Flexibility
+      </h2>
+      <p>
+        Being able to integrate these newcomers seamlessly will make your job
+ as a homeowner much easier, and allow you to keep upgrading to the
+ latest lifestyle technology.
+      </p>
+    </article>
+    <article>
+      <h2>
+        Beautiful and comfortable
+      </h2>
+      <p>
+        Your home interior design based on your taste is a home with a story of who you are. 
+ Make the best possible use of the available space and make it significant.
+      </p>
+    </article>
+    <article>
+      <h2>
+        Maximizing home security
+      </h2>
+      <p>
+        Home Automation systems can connect motion detectors, surveillance
+ cameras, automated door locks, and other security measures
+ throughout your home so you can activate them from one mobile device
+ before heading to bed.
+      </p>
+    </article>
+  </section>
+</main>
+`;
