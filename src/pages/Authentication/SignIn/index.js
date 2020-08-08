@@ -27,7 +27,6 @@ const SignInPage = () => {
       },
       (e) => {
         addToast(e.message, { appearance: "error" });
-        history.push("/api/user/signin");
       }
     );
   };
