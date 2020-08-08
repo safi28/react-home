@@ -18,12 +18,15 @@ const authenticate = async (url, body, onSuccess, onFailure) => {
           id: response._id
         })
       } else {
-        onFailure()
+        onFailure({
+          message: response
+        })
       }
     } catch(e) {
-      onFailure(e)
+      onFailure({
+        message: 'User does not exist'
+      })
     }
   }
-  
   
   export default authenticate

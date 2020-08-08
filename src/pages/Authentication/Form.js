@@ -37,7 +37,7 @@ const FormLabel = (props) => {
           ) : (
             ""
           )}
-          <button onClick={props.onClick} className={styles["animation a6"]}>
+          <button type='button' data-test-id='onClick' onClick={props.onClick} className={styles["animation a6"]}>
             {props.btnTitle}
           </button>
         </div>

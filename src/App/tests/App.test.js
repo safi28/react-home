@@ -1,13 +1,39 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from '../App';
-import Login from '../../components/Authentication/SignIn/SignInLabel';
+import React from "react";
+import renderer from "react-test-renderer";
+import TestingEnvironment from "../../tests-utils/index";
+import App from "../App";
+import Dashboard from "../../pages/HomePages/Dashboard";
+import Slider from "../../pages/HomePages/PublicPage/Slider";
 
-test('renders Home', () => {
-  // const user = {"username": "kotka", "password": "kotkakotka"}
-  // console.log(user);
-  // const {rerender} = render(<Login login={user}/>)
-  // rerender(<Login login={user}/>)
-  // render(<Login />).getByLabelText('Username', {selector: 'input'})
-
-});   
+describe("App", () => {
+  it("should run App", () => {
+    const tree = renderer
+      .create(
+        <TestingEnvironment value={{ user: { isLogged: true } }}>
+          <App />
+        </TestingEnvironment>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it("should run non-authenticated page", () => {
+    const tree = renderer
+      .create(
+        <TestingEnvironment value={{ user: { isLogged: false } }}>
+          <Slider />
+        </TestingEnvironment>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it("should render authentictad page", () => {
+    const tree = renderer.create(
+      <TestingEnvironment
+        value={{ user: { isLogged: true } }}
+      >
+        <Dashboard />
+      </TestingEnvironment>
+    ).toJSON();
+    expect(tree).toMatchSnapshot()
+  });
+});
