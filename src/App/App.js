@@ -24,7 +24,7 @@ const App = (props) => {
 
   useEffect(() => {
     const token = getCookie("auth_cookie");
-
+    console.log(token);
     fetch("http://localhost:9999/api/user/verify", {
       method: "GET",
       headers: {

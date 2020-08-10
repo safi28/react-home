@@ -6,10 +6,10 @@ import App from "./App/App"
 import Navigation from "./navigation"
 
 ReactDOM.render(
-  <ToastProvider>
+  <ToastProvider autoDismissTimeout={4000} autoDismiss={true}>
     <App>
       <Navigation />
     </App>
-    </ToastProvider>,
+  </ToastProvider>,
   document.getElementById("root")
 )

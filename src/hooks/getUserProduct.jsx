@@ -24,12 +24,15 @@ const GetUserProducts = () => {
             }
         }
     }, [])
+
     useEffect(() => {
         getData()
     }, [getData])
+
     const sorted = product.sort((a, b) => {
        return new Date(b.createdAt) - new Date(a.createdAt)
     })
+    
     return { product: sorted, empty }
 }
 

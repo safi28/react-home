@@ -10,7 +10,7 @@ const AutomationPage = () => {
   const history = useHistory();
   const context = useContext(UserContext);
   const { user } = context;
-  const { smartProducts, increase, decrease } = Slide();
+  const { smartProducts, smartIncrease, smartDecrease } = Slide();
 
   const addDataToUser = async () => {
     if (smartProducts) {
@@ -26,9 +26,9 @@ const AutomationPage = () => {
     <>
     <Basket />
     <Form
-      previous={decrease}
+      previous={smartDecrease}
       nextSlideStyle={smartProducts}
-      next={increase}
+      next={smartIncrease}
       onClick={addDataToUser}
     />
     </>

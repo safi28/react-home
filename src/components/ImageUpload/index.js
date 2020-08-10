@@ -32,9 +32,13 @@ const ImageUpload = () => {
         <label htmlFor="file">choose a file</label>
 
         {image ? (
-          <img className={styles["body-image"]} src={image} alt='img' />
+          <img className={styles["body-image"]} src={image} alt="img" />
         ) : (
-          <img className={styles["body-image"]} src={require('../../static/images/add.png')} alt='img' />
+          <img
+            className={styles["body-image"]}
+            src={require("../../static/images/add.png")}
+            alt="img"
+          />
         )}
       </form>
       <div className={styles["body-action-button u-flex-center"]}></div>

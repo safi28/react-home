@@ -1,6 +1,6 @@
 import React from 'react'
 import UserContext from "../../ContextWrapper/User";
-import userInfo from "../../utils/userInfo";
+import service from "../../services/user-service";
 import { useState, useContext, useEffect } from "react";
 
 const GetImage = () => {
@@ -9,7 +9,7 @@ const GetImage = () => {
 
   const getData = async () => {
     const id = user.id;
-    const data = await userInfo(id);
+    const data = await service.userInfo(id);
     const { imageUrl } = data;
     setImage(imageUrl);
   }
