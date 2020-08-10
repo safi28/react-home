@@ -9,7 +9,7 @@ import Loader from "../../components/Loader/Loader"
 const Slideshow = () => {
   const context = useContext(UserContext)
   const { user } = context
-  const { products, increase, decrease } = Slide()
+  const { products, increase, interiorDecrease } = Slide()
   const history = useHistory()
 
   const addDataToUser = async () => {
@@ -24,7 +24,7 @@ const Slideshow = () => {
 
   return products ? (
     <Form
-      previous={decrease}
+      previous={interiorDecrease}
       nextSlideStyle={products}
       next={increase}
       onClick={addDataToUser}

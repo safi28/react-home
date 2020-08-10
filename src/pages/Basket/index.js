@@ -3,23 +3,23 @@ import BasketLabel from "./label"
 import { useHistory } from "react-router-dom"
 import Loader from "../../components/Loader/Loader"
 import EmptyCartPage from "./emptyCart"
-import BasketSlide from "../../hooks/basketSlideshow"
+import Slide from "../../hooks/slideshow"
 
 const BasketPage = () => {
   const history = useHistory()
-  const { product, increase, empty } = BasketSlide()
-  if(empty && !product) {
+  const {basketProducts, basketIncrease, empty} = Slide()
+  if(empty && !basketProducts) {
     return <EmptyCartPage />
   }
-  return product && !empty ? (
+  return basketProducts && !empty ? (
     
     <BasketLabel
-      next={increase}
-      name={product.name}
-      imageUrl={product.imageUrl}
-      price={product.price}
+      next={basketIncrease}
+      name={basketProducts.name}
+      imageUrl={basketProducts.imageUrl}
+      price={basketProducts.price}
       empty={empty}
-      onClick={() => history.push("/api/products/buy", { state: product })}
+      onClick={() => history.push("/api/products/buy", { state: basketProducts })}
     />
   ) : (
     <Loader />
