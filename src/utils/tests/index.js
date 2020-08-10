@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import UserContext from '../ContextWrapper/User';
+import UserContext from '../../ContextWrapper/User';
 
 const TestingEnvironment = ({ value, children }) => {
   return (

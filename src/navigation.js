@@ -15,6 +15,7 @@ const NavigatePage = React.lazy(() => import( "./components/NavigationBar"))
 const HomePage = React.lazy(() => import( "./pages/HomePages"))
 const AutomationPage = React.lazy(() => import( "./pages/HomeAutomation"))
 const Profile = React.lazy(() => import("./pages/Profile"))
+
 class Navigation extends Component {
   static contextType = UserContext
   render() {
@@ -76,4 +77,5 @@ class Navigation extends Component {
    )
   }
 }
+
 export default Navigation   

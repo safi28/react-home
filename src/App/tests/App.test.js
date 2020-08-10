@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import TestingEnvironment from "../../tests-utils/index";
+import TestingEnvironment from "../../utils/tests/index";
 import App from "../App";
 import Dashboard from "../../pages/HomePages/Dashboard";
 import Slider from "../../pages/HomePages/PublicPage/Slider";
