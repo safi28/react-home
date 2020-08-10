@@ -1,30 +1,31 @@
-import React, { Component } from "react"
+import React, { Component, Suspense } from "react"
 import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom"
 import render from "./utils/render"
 import UserContext from "./ContextWrapper/User"
-import SignInPage from "./pages/Authentication/SignIn"
-import SignUpPage from "./pages/Authentication/SignUp"
-import Interior from "./pages/InteriorDesign"
-import BuyProductPage from "./pages/BuyProductPage"
-import BasketPage from "./pages/Basket"
-import NotFound from "./components/Error/404"
-import NotFoundCmp from "./components/Error/404.2"
-import Footer from "./components/Footer"
-import NavigatePage from "./components/NavigationBar"
-import HomePage from "./pages/HomePages"
-import AutomationPage from "./pages/HomeAutomation"
-import Profile from "./pages/Profile"
-
+import Loader from './components/Loader/Loader'
+const SignInPage = React.lazy(() => import("./pages/Authentication/SignIn")) 
+const SignUpPage = React.lazy(() => import("./pages/Authentication/SignUp"))   
+const Interior = React.lazy(() => import( "./pages/InteriorDesign")) 
+const BuyProductPage = React.lazy(() => import("./pages/BuyProductPage"))
+const BasketPage = React.lazy(() => import("./pages/Basket")) 
+const NotFound = React.lazy(() => import("./components/Error/404"))
+const NotFoundCmp = React.lazy(() => import( "./components/Error/404.2"))
+const Footer = React.lazy(() => import( "./components/Footer"))
+const NavigatePage = React.lazy(() => import( "./components/NavigationBar"))
+const HomePage = React.lazy(() => import( "./pages/HomePages"))
+const AutomationPage = React.lazy(() => import( "./pages/HomeAutomation"))
+const Profile = React.lazy(() => import("./pages/Profile"))
 class Navigation extends Component {
   static contextType = UserContext
   render() {
     const { user, logIn } = this.context
     const isLogged = user && user.isLogged
     return (
+      <Suspense fallback={<Loader />}>
       <BrowserRouter>
         <NavigatePage />
         <Switch>
-          <Route path="/" exact component={ render(HomePage, isLogged) } />
+          <Route path="/" exact component={render(HomePage, isLogged)} />
           <Route
             path="/api/user/signin"
             component={
@@ -36,13 +37,13 @@ class Navigation extends Component {
             render={
               !isLogged
                 ? render(SignUpPage, { isLogged })
-                : () => <Redirect to="/" />  } />
+                : () => <Redirect to="/" /> } />
           <Route
             path="/api/products/interior"
             render={
               isLogged
                 ? render(Interior, { isLogged })
-                : () => <Redirect to="/" />  } />
+                : () => <Redirect to="/" /> } />
             <Route
              path="/api/products/smart"
              render={
@@ -71,8 +72,8 @@ class Navigation extends Component {
         </Switch>
         <Footer />
       </BrowserRouter>
-    )
+     </Suspense>
+   )
   }
 }
-
-export default Navigation
+export default Navigation   

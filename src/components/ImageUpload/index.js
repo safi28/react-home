@@ -25,7 +25,6 @@ const ImageUpload = () => {
     );
     setUpdate(data.data);
   };
-  console.log(image);
   return (
     <div className={styles["body-image"]}>
       <form>
@@ -35,7 +34,7 @@ const ImageUpload = () => {
         {image ? (
           <img className={styles["body-image"]} src={image} alt='img' />
         ) : (
-          <img className={styles["body-image"]} src={'https://i.gifer.com/ZZ5H.gif'} alt='img' />
+          <img className={styles["body-image"]} src={require('../../static/images/add.png')} alt='img' />
         )}
       </form>
       <div className={styles["body-action-button u-flex-center"]}></div>

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useToasts } from "react-toast-notifications";
 import FormLabel from "../Form";
 import { useHistory } from "react-router-dom";
 import userService from "../../../services/user-service";
 const SignUpPage = () => {
+  const { addToast } = useToasts();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
@@ -10,8 +12,12 @@ const SignUpPage = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    userService.register({ username, password, rePassword }).then((user) => {
+    userService.register({ username, password, rePassword }).then((user) => {;
+      addToast("Register successfylly", { appearance: "success" });
       history.push("/api/user/signin");
+    }).catch((e) => {
+      addToast('Something is wrong try new username', { appearance: "error" });
+      history.push('/api/user/signup')
     });
   };
   return (

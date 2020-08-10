@@ -21,7 +21,7 @@ const Logo = () => {
       </div>
       <span className={styles["open-menu-btn"]}>
         <Link to="/api/user/profile">
-          <span>
+          <span className={styles.profile}>
             <hr /> Profile <hr />
           </span>
         </Link>
