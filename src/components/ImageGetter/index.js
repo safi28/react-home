@@ -1,7 +1,7 @@
 import React from 'react'
 import UserContext from "../../ContextWrapper/User";
 import userInfo from "../../utils/userInfo";
-import { useState, useContext, useEffect, useCallback } from "react";
+import { useState, useContext, useEffect } from "react";
 
 const GetImage = () => {
   const [image, setImage] = useState("");
