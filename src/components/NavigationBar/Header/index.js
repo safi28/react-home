@@ -1,6 +1,7 @@
-import React from "react";
-import styles from "./style.module.css";
-import Link from "../../../shared/Link/Link";
+import React from "react"
+import styles from "./style.module.css"
+import Link from "../../../shared/Link/Link"
+
 const Header = ({ isLogged }) => {
   return (
       <div>
@@ -17,6 +18,6 @@ const Header = ({ isLogged }) => {
         </header>
         <div id={styles["outer-circle"]}></div>
       </div>
-  );
-};
-export default Header;
+  )
+}
+export default Header

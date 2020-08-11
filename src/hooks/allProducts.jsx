@@ -1,6 +1,4 @@
-import  { useState } from 'react'
-import { useCallback } from 'react'
-import { useEffect } from 'react'
+import  { useState, useCallback, useEffect } from 'react'
 import service from '../services/product-service'
 
 const AllProducts = () => {

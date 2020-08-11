@@ -20,7 +20,7 @@ class Navigation extends Component {
   static contextType = UserContext
   render() {
     const { user, logIn } = this.context
-    const isLogged = user && user.isLogged
+    const isLogged = user.isLogged
     return (
       <Suspense fallback={<Loader />}>
       <BrowserRouter>

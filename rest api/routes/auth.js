@@ -55,18 +55,19 @@ router.post("/register", async (req, res) => {
     return res.status(400).json('Check your fields')
   }
 })
-router.post("/signin", async (req, res) => {
+router.post("/signin", async (req, res, next) => {
   const { username } = req.body
   const user = await User.findOne({ username })
   if (user === null) {
-    return res.status(401).json("User does not exist")
+     res.status(401).json("User does not exist")
   }
-  const status = await signIn(req, res)
+  const status = await signIn(req, res).catch((e) => { return e})
   if (status) {
-    return res.status(200).send(user)
+     res.status(200).send(user)
   } else {
-    return res.status(401).json("Password is incorrect")
+     res.status(401).json("Password is incorrect")
   }
+  return
 })
 
 router.get("/verify", verify)

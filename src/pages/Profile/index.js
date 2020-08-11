@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
-import UserContext from "../../ContextWrapper/User";
-import styles from "./profile.module.css";
-import ImageUpload from "../../components/ImageUpload";
-import GetUserProducts from "../../hooks/getUserProduct";
+import React, { useContext } from "react"
+import UserContext from "../../ContextWrapper/User"
+import styles from "./profile.module.css"
+import ImageUpload from "../../components/ImageUpload"
+import GetUserProducts from "../../hooks/getUserProduct"
 
 const Profile = () => {
-  const context = useContext(UserContext);
+  const context = useContext(UserContext)
   const { product }  = GetUserProducts()
-  const { user, logOut } = context;
+  const { user, logOut } = context
+
   return (
     <div className={styles.container}>
       <div className={styles["header-container"]}>
@@ -37,7 +38,7 @@ const Profile = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

@@ -7,7 +7,6 @@ function ShowDetail() {
         <img
           className={styles.gif}
           src={"https://cdn.lowgif.com/full/dc86e54ceca03be4-loading-spinner-animated-gif-83320-mediabin.gif"}
-          role='img'
           alt="loader"
         />
       </span>

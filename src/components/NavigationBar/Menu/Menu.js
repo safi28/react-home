@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Icons from './Icons'
 import Logo from './Logo'
 import styles from "../../../styles/dashboard.module.css";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Menu = () => {
     return (

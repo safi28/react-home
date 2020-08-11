@@ -1,13 +1,14 @@
-import React, { useContext, useState } from "react";
-import styles from "./image.module.css";
-import UserContext from "../../ContextWrapper/User";
-import axios from "axios";
-import GetImage from "../ImageGetter";
-import getCookie from "../../utils/getCookie";
+import React, { useContext, useState } from "react"
+import styles from "./image.module.css"
+import UserContext from "../../ContextWrapper/User"
+import axios from "axios"
+import GetImage from "../ImageGetter"
+import getCookie from "../../utils/getCookie"
+
 const ImageUpload = () => {
-  const { image } = GetImage();
-  const [, setUpdate] = useState("");
-  const { user } = useContext(UserContext);
+  const { image } = GetImage()
+  const [, setUpdate] = useState("")
+  const { user } = useContext(UserContext)
 
   const _handleImageChange = async (e) => {
     const config = {
@@ -15,16 +16,18 @@ const ImageUpload = () => {
         "Content-Type": "multipart/form-data",
         Authorization: getCookie("auth_cookie"),
       },
-    };
-    const formData = new FormData();
-    formData.append("imageUrl", e.target.files[0]);
+    }
+
+    const formData = new FormData()
+    formData.append("imageUrl", e.target.files[0])
     const data = await axios.post(
       `http://localhost:9999/api/user/user/${user.id}`,
       formData,
       config
-    );
-    setUpdate(data.data);
-  };
+    )
+    setUpdate(data.data)
+  }
+
   return (
     <div className={styles["body-image"]}>
       <form>
@@ -43,7 +46,7 @@ const ImageUpload = () => {
       </form>
       <div className={styles["body-action-button u-flex-center"]}></div>
     </div>
-  );
-};
+  )
+}
 
-export default ImageUpload;
+export default ImageUpload

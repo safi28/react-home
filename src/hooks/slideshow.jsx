@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import AllProducts from './allProducts'
 import AllAutomationProducts from './allAutomationProducts'
-import Increase from '../utils/Slideshow/Increase'
-import Decrease from '../utils/Slideshow/Decrease'
+import Increase from '../utils/slideshow/increase'
+import Decrease from '../utils/slideshow/decrease'
 import GetUserProducts from './getUserProduct'
 
 const Slide = () => {
     const { products } = AllProducts()
     const { smartProducts } = AllAutomationProducts()
     const { product, empty } = GetUserProducts()
+
     const [currentBasketSlide, setCurrentBasketSlide] = useState(0)
     const [currentSlide, setCurrentSlide] = useState(0)
     const [currentSmartSlide, setCurrentSmartSlide] = useState(0)

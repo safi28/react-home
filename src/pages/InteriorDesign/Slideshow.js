@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
+import { useHistory } from "react-router-dom"
 import Form from "../../components/ProductForm/Form"
 import productService from "../../services/product-service"
 import Slide from "../../hooks/slideshow"
-import { useHistory } from "react-router-dom"
 import UserContext from "../../ContextWrapper/User"
 import Loader from "../../components/Loader/Loader"
 
