@@ -1,16 +1,18 @@
 # Home-BEAUTY&SMART🏡:battery:
 ** Simple e-commerce site made with ReactJS
 > Website for Home comfort. It goes with two sections:
-- Profile
+- Profile 
   - Add profile image
   - Logout
 - Interior Design
   - View available products
   - Add product to your cart
+  - Remove product from your cart
   - View you basket
 - Smart Home 
   - View available products
   - Add product to your cart
+  - Remove product from your cart
   - View you basket
 ---
 [![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger) [![Dependency Status](http://img.shields.io/gemnasium/badges/badgerbadgerbadger.svg?style=flat-square)](https://gemnasium.com/badges/badgerbadgerbadger) [![Coverage Status](http://img.shields.io/coveralls/badges/badgerbadgerbadger.svg?style=flat-square)](https://coveralls.io/r/badges/badgerbadgerbadger)
@@ -33,7 +35,7 @@
 
 ### Step 3
 
-- 🔃 Create a new pull request 
+- 🔃 Create a new pull request  
 
 ## Setup 🔨
 - npm install in the (rest api folder & main folder)
