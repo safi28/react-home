@@ -2,7 +2,7 @@
 ** Simple e-commerce site made with ReactJS
 > Website for Home comfort. It goes with two sections:
 - Profile
-  - Add an image
+  - Add profile image
   - Logout
 - Interior Design
   - View available products
