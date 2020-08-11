@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import AllProducts from './allProducts'
 import AllAutomationProducts from './allAutomationProducts'
-import Increase from '../utils/slideshow/increase'
-import Decrease from '../utils/slideshow/decrease'
+import Increase from '../utils/Slideshow/increase'
+import Decrease from '../utils/Slideshow/decrease'
 import GetUserProducts from './getUserProduct'
 
 const Slide = () => {
