@@ -42,8 +42,11 @@
 ## Run locally 🏃
 - npm start in the (rest api folder & main folder)
 ---
-### Tests
-- Jest and Unit
+## Tests
+ - Jest and Unit
+   > npm tests
+ - Cypress
+ > cypress open
 ---
 ## FAQ
 
