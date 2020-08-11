@@ -41,8 +41,10 @@
 - npm install in the (rest api folder & main folder)
 ## Run locally 🏃
 - npm start in the (rest api folder & main folder)
-
-
+---
+### Tests
+- Jest and Unit
+---
 ## FAQ
 
 - **How do I do *specifically* so and so?**
