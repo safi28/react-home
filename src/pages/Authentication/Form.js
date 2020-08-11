@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./style.module.css";
-import Input from "../../components/Input/Input";
-import { Link } from "react-router-dom";
+import React from "react"
+import styles from "./style.module.css"
+import Input from "../../components/Input/Input"
+import { Link } from "react-router-dom"
 
 const FormLabel = (props) => {
   return (
@@ -51,5 +51,5 @@ const FormLabel = (props) => {
       </div>
     </div>
   );
-};
-export default FormLabel;
+}
+export default FormLabel

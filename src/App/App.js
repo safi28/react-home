@@ -11,20 +11,28 @@ const App = (props) => {
   const logIn = (user) => {
     setUser({
       ...user,
-      isLogged: true,
+      isLogged: true
     })
   }
 
   const logOut = () => {
     document.cookie = "auth_cookie=; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
     setUser({
+      user: null,
       isLogged: false,
     })
+    return null
   }
 
   useEffect(() => {
     const token = getCookie("auth_cookie");
-    console.log(token);
+    
+    if(!token) {
+      logOut()
+      setLoading(false)
+      return
+    }
+    
     fetch("http://localhost:9999/api/user/verify", {
       method: "GET",
       headers: {

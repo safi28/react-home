@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "../../styles/buy.module.css";
-import Input from "../../components/Input/Input";
-import CreditCard from "./creditCard";
-import DivLabel from "./divLabel";
+import React from "react"
+import styles from "../../styles/buy.module.css"
+import Input from "../../components/Input/Input"
+import CreditCard from "./creditCard"
+import DivLabel from "./divLabel"
 
 const Label = (props) => {
   return (
@@ -49,6 +49,6 @@ const Label = (props) => {
         </form>
       </div>
     </div>
-  );
-};
-export default Label;
+  )
+}
+export default Label

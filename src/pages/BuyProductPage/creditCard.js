@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "../../styles/buy.module.css";
+import React from "react"
+import styles from "../../styles/buy.module.css"
 
 const CreditCard = (props) => {
   return (
@@ -11,6 +11,6 @@ const CreditCard = (props) => {
         </a>
       </div>
     </header>
-  );
-};
-export default CreditCard;
+  )
+}
+export default CreditCard

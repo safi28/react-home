@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react'
-import { useCallback } from 'react'
+import { useState, useEffect, useContext, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useContext } from 'react'
 import UserContext from '../ContextWrapper/User'
 
 const GetUserProducts = () => {

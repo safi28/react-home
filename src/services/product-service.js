@@ -23,6 +23,16 @@ const productService = {
       },
     });
   },
+  delete: (product) => {
+    return fetch("http://localhost:9999/api/automation/delete", {
+      method: "POST",
+      body: JSON.stringify(product),
+      headers: {
+        "Content-type": "application/json",
+        Authorization: getCookie("auth_cookie"),
+      },
+    });
+  },
   createSmart: (product) => {
     return fetch("http://localhost:9999/api/automation/create", {
       method: "POST",

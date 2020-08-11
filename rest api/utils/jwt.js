@@ -3,7 +3,7 @@ const config = require("../configs/config")
 const secret = config.development.privateKey
 
 function createToken(data) {
-  return jwt.sign(data, secret)
+  return jwt.sign(data, secret, { expiresIn: '1h' })
 }
 
 function verifyToken(token) {
@@ -17,6 +17,7 @@ function verifyToken(token) {
     })
   })
 }
+
 module.exports = {
   createToken,
   verifyToken,

@@ -1,5 +1,5 @@
-import React from "react";
-import CartLayout from "../../components/Cart";
+import React from "react"
+import CartLayout from "../../components/Cart"
 import styles from '../../styles/basketPage.module.css'
 const BasketLabel = (props) => {
   return (
@@ -24,9 +24,13 @@ const BasketLabel = (props) => {
               </div>
               <button
                 onClick={props.onClick}
-                className={styles["blog-slider__button"]}
-              >
+                className={styles["blog-slider__button"]}>
                 BUY
+              </button>
+              <button
+                onClick={props.deleteOnClick}
+                className={styles["delete-button"]}>
+                Remove
               </button>
             </div>
           </div>
@@ -37,6 +41,6 @@ const BasketLabel = (props) => {
         <div className={styles["blog-slider__pagination"]}></div>
       </div>
     </CartLayout>
-  );
-};
-export default BasketLabel;
+  )
+}
+export default BasketLabel

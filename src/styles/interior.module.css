@@ -15,6 +15,16 @@
 .int-btn {
   border: none;
   cursor: pointer;
+  height: 48px;
+  margin-left: 150px;
+  margin-top: -90px;
+  background: #cb2140;
+  border-radius: 90px;
+  font-weight: 300;
+  line-height: 35px;
+  font-size: 14px;
+  padding: 0 24px;
+  color: #fff;  
 }
 .int-btn:focus {
   outline: 0;
