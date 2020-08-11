@@ -51,5 +51,5 @@
 ## Support
 
 - Website :chart:
-- :es: 
+- :us:
 ---
