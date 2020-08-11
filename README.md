@@ -36,9 +36,9 @@
 - 🔃 Create a new pull request 
 
 ## Setup 🔨
-> npm install in the (server folder & main folder)
+- npm install in the (rest api folder & main folder)
 ## Run locally 🏃
-> npm start in the (server folder & main folder)
+- npm start in the (rest api folder & main folder)
 
 
 ## FAQ
@@ -50,8 +50,5 @@
 
 ## Support
 
-Reach out to me at one of the following places!
-
-- Website 
-- Twitter 
+- Website :es: :chart:
 ---
