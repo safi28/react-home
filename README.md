@@ -44,7 +44,7 @@
 ---
 ## Tests
  - Jest and Unit
-   > npm tests
+ > npm tests
  - Cypress
  > cypress open
 ---
