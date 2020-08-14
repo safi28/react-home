@@ -7,7 +7,7 @@ import ErrorBoundary from "./ErrorBoundary";
 
 ReactDOM.render(
   <ErrorBoundary>
-    <ToastProvider autoDismissTimeout={4000} autoDismiss={true}>
+    <ToastProvider autoDismissTimeout={2000} autoDismiss={true}>
      <App>
        <Navigation />
      </App>

@@ -6,10 +6,10 @@ class BuyProductPage extends React.Component {
     super(props);
     this.state = {
       product: this.props.location.state.state,
-    };
+    }
   }
   onClick = () => {
-    return this.props.history.push("/");
+     return this.props.history.push('/')
   };
   render() {
     const { product } = this.state;

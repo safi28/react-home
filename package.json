@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "cypress": "^4.12.1",
+    "heroku": "^7.42.6",
     "jsonwebtoken": "^8.5.1",
     "mdbreact": "^4.27.0",
     "react": "^16.13.1",
@@ -24,7 +25,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:e2e": "cypress open"
+    "test:e2e": "cypress open",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"     
+
   },
   "eslintConfig": {
     "extends": "react-app"
