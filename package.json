@@ -25,9 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:e2e": "cypress open",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"     
-
+    "test:e2e": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"

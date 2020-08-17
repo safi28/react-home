@@ -13,10 +13,15 @@ const SignUpPage = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault()
-    userService.register({ username, password, rePassword }).then((user) => {
+
+    userService.register({ username, password, rePassword }).then(res => res.json()).then((user) => {
+      if(!user.user) {
+        return addToast(user, {appearance: 'error'})
+      }
       addToast("Register successfylly", { appearance: "success" })
       history.push("/api/user/signin")
     }).catch((e) => {
+      console.log(e);
       addToast('Something is wrong try new username', { appearance: "error" })
       history.push('/api/user/signup')
     })

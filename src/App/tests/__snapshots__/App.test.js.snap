@@ -24,16 +24,19 @@ exports[`App should render authentictad page 1`] = `
             className="intr"
             src="https://cdn.dribbble.com/users/93860/screenshots/9710223/media/dfa76676fcbb139505556fd75b40de69.gif"
           />
-          <a
-            href="/api/products/interior"
-            onClick={[Function]}
-          >
-            <button
-              className="button"
+          <li>
+            <a
+              href="/api/products/interior"
+              onClick={[Function]}
             >
-              Check Now
-            </button>
-          </a>
+              <button
+                className="button"
+                type="button"
+              >
+                Check now
+              </button>
+            </a>
+          </li>
           <h1
             className="interior-text"
           >
@@ -66,16 +69,19 @@ exports[`App should render authentictad page 1`] = `
             className="intr"
             src="https://i.pinimg.com/originals/c3/a6/cb/c3a6cbbc1e1d5fed032ea0a49bb9f545.gif"
           />
-          <a
-            href="/api/products/smart"
-            onClick={[Function]}
-          >
-            <button
-              className="button"
+          <li>
+            <a
+              href="/api/products/smart"
+              onClick={[Function]}
             >
-              Check Now
-            </button>
-          </a>
+              <button
+                className="button"
+                type="button"
+              >
+                Check now
+              </button>
+            </a>
+          </li>
           <h1
             className="smart-text"
           >
@@ -116,7 +122,6 @@ exports[`App should run App 1`] = `
     <img
       alt="loader"
       className="gif"
-      role="img"
       src="https://cdn.lowgif.com/full/dc86e54ceca03be4-loading-spinner-animated-gif-83320-mediabin.gif"
     />
   </span>
@@ -153,14 +158,20 @@ exports[`App should run non-authenticated page 1`] = `
  inspired to change your home interior into a beautiful
  comfortable place.
             </p>
-            <button
-              className="box1-button"
-              id="redirect-btn"
-              onClick={[Function]}
-              type="button"
-            >
-              Check Now
-            </button>
+            <li>
+              <a
+                href="/api/user/signin"
+                onClick={[Function]}
+              >
+                <button
+                  className="box1-button"
+                  id="redirect-btn"
+                  type="button"
+                >
+                  Check Now
+                </button>
+              </a>
+            </li>
           </div>
           <div
             className="illustration"
@@ -190,14 +201,20 @@ exports[`App should run non-authenticated page 1`] = `
  only be on when you’re home (and maybe 15 minutes either
  side).
             </p>
-            <button
-              className="box5-button"
-              id="redirect-btn"
-              onClick={[Function]}
-              type="button"
-            >
-              Check Now
-            </button>
+            <li>
+              <a
+                href="/api/user/signin"
+                onClick={[Function]}
+              >
+                <button
+                  className="box5-button"
+                  id="redirect-btn"
+                  type="button"
+                >
+                  Check Now
+                </button>
+              </a>
+            </li>
           </div>
           <div
             className="illustration"
