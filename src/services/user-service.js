@@ -24,7 +24,14 @@ const userService = {
     return axios.get(`http://localhost:9999/api/user/interior/${id}`);
   },
   register: (newUser) => {
-    return axios.post("http://localhost:9999/api/user/register", newUser);
+    return fetch('http://localhost:9999/api/user/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newUser)
+    })
+    // return axios.post("http://localhost:9999/api/user/register", newUser);
   }
 };
 export default userService;

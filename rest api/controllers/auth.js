@@ -4,10 +4,13 @@ const { createToken, verifyToken } = require("../utils/jwt")
 const TokenBlackList = require("../models/TokenBlackList")
 
 const signUp = async (req, res) => {
-  const { username, password } = req.body
+  const { username, password, rePassword } = req.body
   const salt = await bcrypt.genSalt(10)
   const hashedPassword = await bcrypt.hash(password, salt)
   const user = await User.findOne({ username })
+  if(password !== rePassword) {
+    return res.status(400).json('Passwords does not match!')
+  }
   if (user !== null) {
     return res.status(400).json("Username already exists")
   }
